@@ -18,7 +18,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.CHITIN_BLOCK.get());
+        this.add(ModBlocks.CHITIN_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.CHITIN_SLAB.get()));
+        this.dropSelf(ModBlocks.CHITIN_STAIRS.get());
+        this.dropSelf(ModBlocks.CHITIN_WALL.get());
         this.dropSelf(ModBlocks.CHITIN_BRICKS.get());
+        this.add(ModBlocks.CHITIN_BRICK_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.CHITIN_BRICK_SLAB.get()));
+        this.dropSelf(ModBlocks.CHITIN_BRICK_STAIRS.get());
+        this.dropSelf(ModBlocks.CHITIN_BRICK_WALL.get());
+        this.dropSelf(ModBlocks.CHISELED_CHITIN_BRICKS.get());
 
         this.dropSelf(ModBlocks.SILVERFISH_TRAP.get());
     }

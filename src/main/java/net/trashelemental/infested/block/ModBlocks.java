@@ -2,8 +2,7 @@ package net.trashelemental.infested.block;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,7 +23,28 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHITIN_BLOCK = registerblock("chitin_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
 
+    public static final RegistryObject<Block> CHITIN_SLAB = registerblock("chitin_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHITIN_STAIRS = registerblock("chitin_stairs",
+            () -> new StairBlock(() -> ModBlocks.CHITIN_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHITIN_WALL = registerblock("chitin_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
     public static final RegistryObject<Block> CHITIN_BRICKS = registerblock("chitin_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHITIN_BRICK_SLAB = registerblock("chitin_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHITIN_BRICK_STAIRS = registerblock("chitin_brick_stairs",
+            () -> new StairBlock(() -> ModBlocks.CHITIN_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHITIN_BRICK_WALL = registerblock("chitin_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static final RegistryObject<Block> CHISELED_CHITIN_BRICKS = registerblock("chiseled_chitin_bricks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
 
 

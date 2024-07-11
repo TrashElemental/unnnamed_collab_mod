@@ -1,7 +1,7 @@
 {
   "item.infested.chitin": "Chitin",
-  "item.infested.insect_template": "Smithing Template",
-  "item.infested.spider_template": "Smithing Template",
+  "item.infested.insect_template": "Insect Template",
+  "item.infested.spider_template": "Spider Template",
   "item.infested.raw_grub": "Raw Grub",
   "item.infested.fried_grub": "Fried Grub",
   "item.infested.bug_stew": "Bug Stew",
@@ -9,7 +9,14 @@
   "item.infested.spider_egg": "Spider Egg",
 
   "block.infested.chitin_block": "Block of Chitin",
+  "block.infested.chitin_slab": "Chitin Slab",
+  "block.infested.chitin_stairs": "Chitin Stairs",
+  "block.infested.chitin_wall": "Chitin Wall",
   "block.infested.chitin_bricks": "Chitin Bricks",
+  "block.infested.chitin_brick_slab": "Chitin Brick Slab",
+  "block.infested.chitin_brick_stairs": "Chitin Brick Stairs",
+  "block.infested.chitin_brick_wall": "Chitin Brick Wall",
+  "block.infested.chiseled_chitin_bricks": "Chiseled Chitin Bricks",
 
   "block.infested.silverfish_trap": "Silverfish Trap",
 

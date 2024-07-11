@@ -29,7 +29,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SPIDER_TEMPLATE.get());
 
                         output.accept(ModBlocks.CHITIN_BLOCK.get());
+                        output.accept(ModBlocks.CHITIN_SLAB.get());
+                        output.accept(ModBlocks.CHITIN_STAIRS.get());
+                        output.accept(ModBlocks.CHITIN_WALL.get());
                         output.accept(ModBlocks.CHITIN_BRICKS.get());
+                        output.accept(ModBlocks.CHITIN_BRICK_SLAB.get());
+                        output.accept(ModBlocks.CHITIN_BRICK_STAIRS.get());
+                        output.accept(ModBlocks.CHITIN_BRICK_WALL.get());
+                        output.accept(ModBlocks.CHISELED_CHITIN_BRICKS.get());
 
                         output.accept(ModBlocks.SILVERFISH_TRAP.get());
                     })

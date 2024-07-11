@@ -1,0 +1,11 @@
+// 1.20.1	2024-07-10T22:33:26.0750057	Loot Tables
+7d54cfd58ca2c3159b68c3ba3ea1064d9f61abb5 data/infested/loot_tables/blocks/chiseled_chitin_bricks.json
+d988d3d2df31874eb8d11c6e0cd9607d0537287c data/infested/loot_tables/blocks/chitin_block.json
+a7440a1fe2580343d7c3388ad176310073fc1651 data/infested/loot_tables/blocks/chitin_bricks.json
+50217eb38f17bfe2b7dd5fc93d44f4402e678c94 data/infested/loot_tables/blocks/chitin_brick_slab.json
+05e24b6f3a1f896fcfae3ed1acb6c6f699eb0fb5 data/infested/loot_tables/blocks/chitin_brick_stairs.json
+6cfca49a65a820a5577d5affc059fef17d1bc4f6 data/infested/loot_tables/blocks/chitin_brick_wall.json
+9f4ec65e35db0df3d10a4a07e30c9b1bdcd98d32 data/infested/loot_tables/blocks/chitin_slab.json
+0646f04a171c3a0f1a578decf149e7604f75fbc4 data/infested/loot_tables/blocks/chitin_stairs.json
+f60d3a40c25332e0092d5854fbb0a320d80cb29b data/infested/loot_tables/blocks/chitin_wall.json
+296a4dc21935c912e8022a9eff18baa1fbc6a046 data/infested/loot_tables/blocks/silverfish_trap.json

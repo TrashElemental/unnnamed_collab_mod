@@ -33,5 +33,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.CHITIN_BLOCK.get())
                 .add(ModBlocks.CHITIN_BRICKS.get())
                 .add(ModBlocks.SILVERFISH_TRAP.get());
+
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.CHITIN_WALL.get())
+                .add(ModBlocks.CHITIN_BRICK_WALL.get());
     }
 }

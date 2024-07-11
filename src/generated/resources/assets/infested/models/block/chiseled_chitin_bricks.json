@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "infested:block/chiseled_chitin_bricks"
+  }
+}
