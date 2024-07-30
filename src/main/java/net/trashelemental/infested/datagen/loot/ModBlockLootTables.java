@@ -1,4 +1,4 @@
-package net.trashelemental.datagen.loot;
+package net.trashelemental.infested.datagen.loot;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlagSet;

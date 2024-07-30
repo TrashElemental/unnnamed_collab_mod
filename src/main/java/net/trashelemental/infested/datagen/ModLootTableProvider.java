@@ -1,9 +1,9 @@
-package net.trashelemental.datagen;
+package net.trashelemental.infested.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.trashelemental.datagen.loot.ModBlockLootTables;
+import net.trashelemental.infested.datagen.loot.ModBlockLootTables;
 
 import java.util.List;
 import java.util.Set;

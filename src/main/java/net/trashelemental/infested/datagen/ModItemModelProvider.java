@@ -1,4 +1,4 @@
-package net.trashelemental.datagen;
+package net.trashelemental.infested.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -32,12 +32,24 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SILVERFISH_EGGS);
         simpleItem(ModItems.SPIDER_EGG);
 
+        simpleItem(ModItems.CHITIN_HELMET);
+        simpleItem(ModItems.CHITIN_CHESTPLATE);
+        simpleItem(ModItems.CHITIN_LEGGINGS);
+        simpleItem(ModItems.CHITIN_BOOTS);
+        simpleItem(ModItems.SPIDER_HELMET);
+        simpleItem(ModItems.SPIDER_CHESTPLATE);
+        simpleItem(ModItems.SPIDER_LEGGINGS);
+        simpleItem(ModItems.SPIDER_BOOTS);
+
         wallItem(ModBlocks.CHITIN_WALL, ModBlocks.CHITIN_BLOCK);
         wallItem(ModBlocks.CHITIN_BRICK_WALL, ModBlocks.CHITIN_BRICKS);
         evenSimplerBlockItem(ModBlocks.CHITIN_SLAB);
         evenSimplerBlockItem(ModBlocks.CHITIN_BRICK_SLAB);
         evenSimplerBlockItem(ModBlocks.CHITIN_STAIRS);
         evenSimplerBlockItem(ModBlocks.CHITIN_BRICK_STAIRS);
+
+        withExistingParent(ModItems.CRIMSON_BEETLE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(ModItems.GRUB_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

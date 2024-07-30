@@ -1,4 +1,4 @@
-package net.trashelemental.datagen;
+package net.trashelemental.infested.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -7,7 +7,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.trashelemental.datagen.loot.ModBlockLootTables;
 import net.trashelemental.infested.infested;
 
 import java.util.concurrent.CompletableFuture;
@@ -32,6 +31,8 @@ public class DataGenerators {
         ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
                 new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));
 
 
     }

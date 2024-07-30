@@ -1,4 +1,4 @@
-package net.trashelemental.datagen;
+package net.trashelemental.infested.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -104,6 +104,88 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         100)
                 .unlockedBy("has_raw_grub", has(ModItems.RAW_GRUB.get()))
                 .save(pWriter, new ResourceLocation("infested", "fried_grub_smoking"));
+
+
+        //Armor Items
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.INSECT_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_HELMET),
+                        Ingredient.of(ModItems.CHITIN.get()),
+                        RecipeCategory.MISC,
+                        ModItems.CHITIN_HELMET.get()
+                )
+                .unlocks("has_insect_template", has(ModItems.INSECT_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "chitin_helmet_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.INSECT_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_CHESTPLATE),
+                        Ingredient.of(ModItems.CHITIN.get()),
+                        RecipeCategory.MISC,
+                        ModItems.CHITIN_CHESTPLATE.get()
+                )
+                .unlocks("has_insect_template", has(ModItems.INSECT_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "chitin_chestplate_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.INSECT_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_LEGGINGS),
+                        Ingredient.of(ModItems.CHITIN.get()),
+                        RecipeCategory.MISC,
+                        ModItems.CHITIN_LEGGINGS.get()
+                )
+                .unlocks("has_insect_template", has(ModItems.INSECT_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "chitin_leggings_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.INSECT_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_BOOTS),
+                        Ingredient.of(ModItems.CHITIN.get()),
+                        RecipeCategory.MISC,
+                        ModItems.CHITIN_BOOTS.get()
+                )
+                .unlocks("has_insect_template", has(ModItems.INSECT_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "chitin_boots_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.SPIDER_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_HELMET),
+                        Ingredient.of(Items.COBWEB),
+                        RecipeCategory.MISC,
+                        ModItems.SPIDER_HELMET.get()
+                )
+                .unlocks("has_spider_template", has(ModItems.SPIDER_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "spider_helmet_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.SPIDER_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_CHESTPLATE),
+                        Ingredient.of(Items.COBWEB),
+                        RecipeCategory.MISC,
+                        ModItems.SPIDER_CHESTPLATE.get()
+                )
+                .unlocks("has_spider_template", has(ModItems.SPIDER_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "spider_chestplate_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.SPIDER_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_LEGGINGS),
+                        Ingredient.of(Items.COBWEB),
+                        RecipeCategory.MISC,
+                        ModItems.SPIDER_LEGGINGS.get()
+                )
+                .unlocks("has_spider_template", has(ModItems.SPIDER_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "spider_leggings_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(ModItems.SPIDER_TEMPLATE.get()),
+                        Ingredient.of(Items.LEATHER_BOOTS),
+                        Ingredient.of(Items.COBWEB),
+                        RecipeCategory.MISC,
+                        ModItems.SPIDER_BOOTS.get()
+                )
+                .unlocks("has_spider_template", has(ModItems.SPIDER_TEMPLATE.get()))
+                .save(pWriter, new ResourceLocation("infested", "spider_boots_smithing"));
 
 
 

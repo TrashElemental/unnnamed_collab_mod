@@ -25,8 +25,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BUG_STEW.get());
                         output.accept(ModItems.SILVERFISH_EGGS.get());
                         output.accept(ModItems.SPIDER_EGG.get());
+
                         output.accept(ModItems.INSECT_TEMPLATE.get());
+                        output.accept(ModItems.CHITIN_HELMET.get());
+                        output.accept(ModItems.CHITIN_CHESTPLATE.get());
+                        output.accept(ModItems.CHITIN_LEGGINGS.get());
+                        output.accept(ModItems.CHITIN_BOOTS.get());
+
                         output.accept(ModItems.SPIDER_TEMPLATE.get());
+                        output.accept(ModItems.SPIDER_HELMET.get());
+                        output.accept(ModItems.SPIDER_CHESTPLATE.get());
+                        output.accept(ModItems.SPIDER_LEGGINGS.get());
+                        output.accept(ModItems.SPIDER_BOOTS.get());
+
+                        output.accept(ModBlocks.SILVERFISH_TRAP.get());
 
                         output.accept(ModBlocks.CHITIN_BLOCK.get());
                         output.accept(ModBlocks.CHITIN_SLAB.get());
@@ -38,7 +50,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CHITIN_BRICK_WALL.get());
                         output.accept(ModBlocks.CHISELED_CHITIN_BRICKS.get());
 
-                        output.accept(ModBlocks.SILVERFISH_TRAP.get());
+                        output.accept(ModItems.GRUB_SPAWN_EGG.get());
+                        output.accept(ModItems.CRIMSON_BEETLE_SPAWN_EGG.get());
+
                     })
                     .build());
 

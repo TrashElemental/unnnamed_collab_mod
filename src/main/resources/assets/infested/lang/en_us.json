@@ -8,6 +8,15 @@
   "item.infested.silverfish_eggs": "Silverfish Eggs",
   "item.infested.spider_egg": "Spider Egg",
 
+  "item.infested.chitin_helmet": "Chitin Helmet",
+  "item.infested.chitin_chestplate": "Chitin Chestplate",
+  "item.infested.chitin_leggings": "Chitin Leggings",
+  "item.infested.chitin_boots": "Chitin Boots",
+  "item.infested.spider_helmet": "Spider Hood",
+  "item.infested.spider_chestplate": "Spider Tunic",
+  "item.infested.spider_leggings": "Spider Legwraps",
+  "item.infested.spider_boots": "Spider Boots",
+
   "block.infested.chitin_block": "Block of Chitin",
   "block.infested.chitin_slab": "Chitin Slab",
   "block.infested.chitin_stairs": "Chitin Stairs",
@@ -19,6 +28,9 @@
   "block.infested.chiseled_chitin_bricks": "Chiseled Chitin Bricks",
 
   "block.infested.silverfish_trap": "Silverfish Trap",
+
+  "item.infested.grub_spawn_egg": "Grub Spawn Egg",
+  "item.infested.crimson_beetle_spawn_egg": "Crimson Beetle Spawn Egg",
 
   "creativetab.infested_tab": "Infested!"
 }

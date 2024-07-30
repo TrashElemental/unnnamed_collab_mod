@@ -1,4 +1,4 @@
-package net.trashelemental.datagen;
+package net.trashelemental.infested.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
