@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.trashelemental.infested.entity.client.CrimsonBeetleModel;
 import net.trashelemental.infested.entity.client.GrubModel;
+import net.trashelemental.infested.entity.client.JewelBeetleModel;
 import net.trashelemental.infested.entity.client.ModModelLayers;
 import net.trashelemental.infested.infested;
 
@@ -16,6 +17,11 @@ public class ModEventBusClientEvents {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.CRIMSON_BEETLE_LAYER, CrimsonBeetleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.GRUB_LAYER, GrubModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.HARVEST_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.JEWEL_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CHORUS_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ANCIENT_DEBREETLE_LAYER, JewelBeetleModel::createBodyLayer);
     }
 }
 

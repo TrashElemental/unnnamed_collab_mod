@@ -8,6 +8,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.trashelemental.infested.block.custom.ModFlammableRotatedPillarBlock;
+import net.trashelemental.infested.block.custom.SilverfishTrapBlock;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.ModItems;
 
@@ -45,12 +47,12 @@ public class ModBlocks {
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
 
     public static final RegistryObject<Block> CHISELED_CHITIN_BRICKS = registerblock("chiseled_chitin_bricks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_PILLAR)));
 
 
     // Functional Blocks
     public static final RegistryObject<Block> SILVERFISH_TRAP = registerblock("silverfish_trap",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.PISTON)));
+            () -> new SilverfishTrapBlock(BlockBehaviour.Properties.copy(Blocks.PISTON)));
 
 
 

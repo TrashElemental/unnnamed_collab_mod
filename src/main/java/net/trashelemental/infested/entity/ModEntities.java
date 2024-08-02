@@ -6,8 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.trashelemental.infested.entity.custom.CrimsonBeetleEntity;
-import net.trashelemental.infested.entity.custom.GrubEntity;
+import net.trashelemental.infested.entity.custom.*;
 import net.trashelemental.infested.infested;
 
 public class ModEntities {
@@ -17,10 +16,31 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<CrimsonBeetleEntity>> CRIMSON_BEETLE =
             ENTITY_TYPES.register("crimson_beetle", () -> EntityType.Builder.of(CrimsonBeetleEntity::new, MobCategory.CREATURE)
-                    .sized(0.6f, 1).build("crimson_beetle"));
+                    .sized(0.6f, 0.5f).build("crimson_beetle"));
     public static final RegistryObject<EntityType<GrubEntity>> GRUB =
             ENTITY_TYPES.register("grub", () -> EntityType.Builder.of(GrubEntity::new, MobCategory.CREATURE)
-                    .sized(0.6f, 0.5f).build("grub"));
+                    .sized(0.4f, 0.3f).build("grub"));
+
+    public static final RegistryObject<EntityType<HarvestBeetleEntity>> HARVEST_BEETLE =
+            ENTITY_TYPES.register("harvest_beetle", () -> EntityType.Builder.of(HarvestBeetleEntity::new, MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f).build("harvest_beetle"));
+    public static final RegistryObject<EntityType<JewelBeetleEntity>> JEWEL_BEETLE =
+          ENTITY_TYPES.register("jewel_beetle", () -> EntityType.Builder.of(JewelBeetleEntity::new, MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f).build("jewel_beetle"));
+    public static final RegistryObject<EntityType<ChorusBeetleEntity>> CHORUS_BEETLE =
+            ENTITY_TYPES.register("chorus_beetle", () -> EntityType.Builder.of(ChorusBeetleEntity::new, MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f).build("chorus_beetle"));
+   public static final RegistryObject<EntityType<AncientDebreetleEntity>> ANCIENT_DEBREETLE =
+            ENTITY_TYPES.register("ancient_debreetle", () -> EntityType.Builder.of(AncientDebreetleEntity::new, MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f).build("ancient_debreetle"));
+
+
+    public static final RegistryObject<EntityType<TamedSilverfishEntity>> TAMED_SILVERFISH =
+            ENTITY_TYPES.register("tamed_silverfish", () -> EntityType.Builder.of(TamedSilverfishEntity::new, MobCategory.CREATURE)
+                    .sized(0.4f, 0.3f).build("tamed_silverfish"));
+    public static final RegistryObject<EntityType<AttackSilverfishEntity>> ATTACK_SILVERFISH =
+            ENTITY_TYPES.register("attack_silverfish", () -> EntityType.Builder.of(AttackSilverfishEntity::new, MobCategory.CREATURE)
+                    .sized(0.4f, 0.3f).build("attack_silverfish"));
 
 
     public static void register(IEventBus eventBus) {

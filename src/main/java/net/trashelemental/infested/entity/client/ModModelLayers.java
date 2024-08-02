@@ -12,4 +12,17 @@ public class ModModelLayers {
     public static final ModelLayerLocation GRUB_LAYER = new ModelLayerLocation(
             new ResourceLocation(infested.MOD_ID, "grub_layer"), "main");
 
+    public static final ModelLayerLocation HARVEST_BEETLE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "harvest_beetle_layer"), "main");
+
+    public static final ModelLayerLocation JEWEL_BEETLE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "jewel_beetle_layer"), "main");
+
+    public static final ModelLayerLocation CHORUS_BEETLE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "chorus_beetle_layer"), "main");
+
+    public static final ModelLayerLocation ANCIENT_DEBREETLE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "ancient_debreetle_layer"), "main");
+
+
 }

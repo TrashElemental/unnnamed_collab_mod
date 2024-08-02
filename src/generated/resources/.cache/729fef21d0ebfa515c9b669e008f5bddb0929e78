@@ -1,5 +1,5 @@
-// 1.20.1	2024-07-10T22:33:26.0760245	Block States: infested
-4e053e62b377425580e5106250a981f49d36a00f assets/infested/blockstates/chiseled_chitin_bricks.json
+// 1.20.1	2024-08-01T21:50:08.3872003	Block States: infested
+1918e8eba72ff1d13bbd883fa684efcd8b9fb3da assets/infested/blockstates/chiseled_chitin_bricks.json
 84dc2560a5f3251a429d2962cc927d5768a07785 assets/infested/blockstates/chitin_block.json
 6e5d30888c82edca73b69fc171824eae6d3f564d assets/infested/blockstates/chitin_bricks.json
 b1682b23ee03869c47b4b2a38f0baf402ea366fa assets/infested/blockstates/chitin_brick_slab.json
@@ -9,7 +9,8 @@ f5231a53a29f2ec94f5d1bd0e3a850ba800421b9 assets/infested/blockstates/chitin_bric
 afad2592eb0304900001564fe0479a6aad8a9d6f assets/infested/blockstates/chitin_stairs.json
 3f9ac29c073754a00a776aadfb18d20c0b1fd88e assets/infested/blockstates/chitin_wall.json
 043bb94b25316f02cbee38b7eb1e78659f8f93db assets/infested/blockstates/silverfish_trap.json
-e8cf0b410ad5cd9afb19e7cb278dcf8001a6746b assets/infested/models/block/chiseled_chitin_bricks.json
+5f931a6b03d897be37fc67db205dd2c15c58d0f5 assets/infested/models/block/chiseled_chitin_bricks.json
+e846fb36ce78569a99c702fc25e656f05c3d4da3 assets/infested/models/block/chiseled_chitin_bricks_horizontal.json
 66310844241f24cee9b8179b01e924ccc3884495 assets/infested/models/block/chitin_block.json
 08ac7011e85d4d06d544da209ad86780f7f4aeb8 assets/infested/models/block/chitin_bricks.json
 41652721ad5ee9eaa1cb1f735712b2f1527aab08 assets/infested/models/block/chitin_brick_slab.json

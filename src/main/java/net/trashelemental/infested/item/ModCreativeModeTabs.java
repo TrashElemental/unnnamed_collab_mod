@@ -52,6 +52,10 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.GRUB_SPAWN_EGG.get());
                         output.accept(ModItems.CRIMSON_BEETLE_SPAWN_EGG.get());
+                        output.accept(ModItems.HARVEST_BEETLE_SPAWN_EGG.get());
+                        output.accept(ModItems.JEWEL_BEETLE_SPAWN_EGG.get());
+                        output.accept(ModItems.CHORUS_BEETLE_SPAWN_EGG.get());
+                        output.accept(ModItems.ANCIENT_DEBREETLE_SPAWN_EGG.get());
 
                     })
                     .build());

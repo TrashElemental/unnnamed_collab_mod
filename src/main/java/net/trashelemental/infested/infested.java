@@ -16,8 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.trashelemental.infested.block.ModBlocks;
 import net.trashelemental.infested.entity.ModEntities;
-import net.trashelemental.infested.entity.client.CrimsonBeetleRenderer;
-import net.trashelemental.infested.entity.client.GrubRenderer;
+import net.trashelemental.infested.entity.client.*;
 import net.trashelemental.infested.item.ModCreativeModeTabs;
 import net.trashelemental.infested.item.ModItems;
 import net.trashelemental.infested.loot.ModLootModifiers;
@@ -74,6 +73,12 @@ public class infested
 
             EntityRenderers.register(ModEntities.CRIMSON_BEETLE.get(), CrimsonBeetleRenderer::new);
             EntityRenderers.register(ModEntities.GRUB.get(), GrubRenderer::new);
+            EntityRenderers.register(ModEntities.HARVEST_BEETLE.get(), HarvestBeetleRenderer::new);
+            EntityRenderers.register(ModEntities.JEWEL_BEETLE.get(), JewelBeetleRenderer::new);
+            EntityRenderers.register(ModEntities.CHORUS_BEETLE.get(), ChorusBeetleRenderer::new);
+            EntityRenderers.register(ModEntities.ANCIENT_DEBREETLE.get(), AncientDebreetleRenderer::new);
+            EntityRenderers.register(ModEntities.TAMED_SILVERFISH.get(), TamedSilverfishRenderer::new);
+            EntityRenderers.register(ModEntities.ATTACK_SILVERFISH.get(), AttackSilverfishRenderer::new);
 
         }
     }

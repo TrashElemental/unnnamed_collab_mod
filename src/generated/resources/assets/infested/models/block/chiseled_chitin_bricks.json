@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "infested:block/chiseled_chitin_bricks"
+    "end": "infested:block/chiseled_chitin_bricks_top",
+    "side": "infested:block/chiseled_chitin_bricks"
   }
 }

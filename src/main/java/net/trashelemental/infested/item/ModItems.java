@@ -11,6 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.custom.BugStewItem;
+import net.trashelemental.infested.item.custom.SilverfishEggsItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -40,7 +41,7 @@ public class ModItems {
 
     //Functional Items
     public static final RegistryObject<Item> SILVERFISH_EGGS = ITEMS.register("silverfish_eggs",
-            () -> new Item(new Item.Properties()));
+            () -> new SilverfishEggsItem(new Item.Properties()));
 
     public static final RegistryObject<Item> SPIDER_EGG = ITEMS.register("spider_egg",
             () -> new Item(new Item.Properties()));
@@ -69,6 +70,14 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.CRIMSON_BEETLE, -7271926, -14415607, new Item.Properties()));
     public static final RegistryObject<Item> GRUB_SPAWN_EGG = ITEMS.register("grub_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.GRUB, -3361401, -7720655, new Item.Properties()));
+    public static final RegistryObject<Item> HARVEST_BEETLE_SPAWN_EGG = ITEMS.register("harvest_beetle_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.HARVEST_BEETLE, -13408768, -6684826, new Item.Properties()));
+    public static final RegistryObject<Item> JEWEL_BEETLE_SPAWN_EGG = ITEMS.register("jewel_beetle_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.JEWEL_BEETLE, -6711040, -103, new Item.Properties()));
+    public static final RegistryObject<Item> CHORUS_BEETLE_SPAWN_EGG = ITEMS.register("chorus_beetle_spawn_egg",
+               () -> new ForgeSpawnEggItem(ModEntities.CHORUS_BEETLE, -6983240, -13057, new Item.Properties()));
+    public static final RegistryObject<Item> ANCIENT_DEBREETLE_SPAWN_EGG = ITEMS.register("ancient_debreetle_spawn_egg",
+                () -> new ForgeSpawnEggItem(ModEntities.ANCIENT_DEBREETLE, -12308191, -8705266, new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {
