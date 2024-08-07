@@ -36,6 +36,30 @@
   "item.infested.chorus_beetle_spawn_egg": "Chorus Beetle Spawn Egg",
   "item.infested.ancient_debreetle_spawn_egg": "Ancient Debreetle Spawn Egg",
 
+  "item.minecraft.potion.effect.resistance_potion": "Potion of Resistance",
+  "item.minecraft.splash_potion.effect.resistance_potion": "Splash Potion of Resistance",
+  "item.minecraft.lingering_potion.effect.resistance_potion": "Lingering Potion of Resistance",
+  "item.minecraft.tipped_arrow.effect.resistance_potion": "Arrow of Resistance",
+  "item.minecraft.potion.effect.resistance_potion_long": "Potion of Resistance",
+  "item.minecraft.splash_potion.effect.resistance_potion_long": "Splash Potion of Resistance",
+  "item.minecraft.lingering_potion.effect.resistance_potion_long": "Lingering Potion of Resistance",
+  "item.minecraft.tipped_arrow.effect.resistance_potion_long": "Arrow of Resistance",
+  "item.minecraft.potion.effect.resistance_potion_strong": "Potion of Resistance",
+  "item.minecraft.splash_potion.effect.resistance_potion_strong": "Splash Potion of Resistance",
+  "item.minecraft.lingering_potion.effect.resistance_potion_strong": "Lingering Potion of Resistance",
+  "item.minecraft.tipped_arrow.effect.resistance_potion_strong": "Arrow of Resistance",
+
+  "effect.infested.ambush": "Ambush",
+  "effect.infested.ambush_cooldown": "Ambush Cooldown",
+  "effect.infested.parasitic_infection": "Parasitic Infection",
+
+  "enchantment.infested.infested": "Infested",
+  "enchantment.infested.infested.desc": "Spawn a silverfish to fight for you when you are hit with or block an attack.",
+  "enchantment.infested.parasitoid": "Parasitoid",
+  "enchantment.infested.parasitoid.desc": "Slain entities will spawn a silverfish to fight for you.",
+  "enchantment.infested.ensnaring_strike": "Ensnaring Strike",
+  "enchantment.infested.ensnaring_strike.desc": "Consume more durability on attacks to apply slowness to foes.",
+
 
   "creativetab.infested_tab": "Infested!",
 
@@ -45,7 +69,6 @@
   "entity.infested.jewel_beetle": "Jewel Beetle",
   "entity.infested.chorus_beetle": "Chorus Beetle",
   "entity.infested.ancient_debreetle": "Ancient Debreetle",
-
 
   "entity.infested.tamed_silverfish": "Silverfish",
   "entity.infested.attack_silverfish": "Silverfish"
