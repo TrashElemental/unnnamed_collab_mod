@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.client;
+package net.trashelemental.infested.entity.client.renderers;
 
 import net.minecraft.client.model.SilverfishModel;
 import net.minecraft.client.model.geom.ModelLayers;

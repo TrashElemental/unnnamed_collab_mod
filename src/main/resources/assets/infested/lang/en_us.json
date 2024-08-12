@@ -31,6 +31,8 @@
 
   "item.infested.grub_spawn_egg": "Grub Spawn Egg",
   "item.infested.crimson_beetle_spawn_egg": "Crimson Beetle Spawn Egg",
+  "item.infested.brilliant_beetle_spawn_egg": "Brilliant Beetle Spawn Egg",
+  "item.infested.mantis_spawn_egg": "Mantis Spawn Egg",
   "item.infested.harvest_beetle_spawn_egg": "Harvest Beetle Spawn Egg",
   "item.infested.jewel_beetle_spawn_egg": "Jewel Beetle Spawn Egg",
   "item.infested.chorus_beetle_spawn_egg": "Chorus Beetle Spawn Egg",
@@ -65,11 +67,12 @@
 
   "entity.infested.grub": "Grub",
   "entity.infested.crimson_beetle": "Crimson Beetle",
+  "entity.infested.brilliant_beetle": "Brilliant Beetle",
   "entity.infested.harvest_beetle": "Harvest Beetle",
   "entity.infested.jewel_beetle": "Jewel Beetle",
+  "entity.infested.mantis": "Mantis",
   "entity.infested.chorus_beetle": "Chorus Beetle",
   "entity.infested.ancient_debreetle": "Ancient Debreetle",
-
   "entity.infested.tamed_silverfish": "Silverfish",
   "entity.infested.attack_silverfish": "Silverfish"
 }

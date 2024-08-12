@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.client;
+package net.trashelemental.infested.entity.client.renderers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -11,25 +11,27 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.trashelemental.infested.entity.custom.HarvestBeetleEntity;
+import net.trashelemental.infested.entity.client.models.JewelBeetleModel;
+import net.trashelemental.infested.entity.client.ModModelLayers;
+import net.trashelemental.infested.entity.custom.JewelBeetleEntity;
 import net.trashelemental.infested.infested;
 
-public class HarvestBeetleRenderer extends MobRenderer<HarvestBeetleEntity, JewelBeetleModel<HarvestBeetleEntity>> {
+public class JewelBeetleRenderer extends MobRenderer<JewelBeetleEntity, JewelBeetleModel<JewelBeetleEntity>> {
 
-    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/harvest_beetle.png");
-    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/harvest_beetle_glow.png");
+    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/jewel_beetle.png");
+    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/jewel_beetle_glow.png");
 
-    public HarvestBeetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModModelLayers.HARVEST_BEETLE_LAYER)), 0.3f);
+    public JewelBeetleRenderer(EntityRendererProvider.Context pContext) {
+        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModModelLayers.JEWEL_BEETLE_LAYER)), 0.3f);
         this.addLayer(new EmissiveLayer<>(this));
     }
 
     @Override
-    public ResourceLocation getTextureLocation(HarvestBeetleEntity entity) {
+    public ResourceLocation getTextureLocation(JewelBeetleEntity entity) {
         return MAIN_TEXTURE;
     }
 
-    private static class EmissiveLayer<T extends HarvestBeetleEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
+    private static class EmissiveLayer<T extends JewelBeetleEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
         public EmissiveLayer(RenderLayerParent<T, M> parent) {
             super(parent);
@@ -43,7 +45,7 @@ public class HarvestBeetleRenderer extends MobRenderer<HarvestBeetleEntity, Jewe
     }
 
     @Override
-    public void render(HarvestBeetleEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(JewelBeetleEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         float scale = 0.5f;
         pPoseStack.pushPose();
         pPoseStack.scale(scale, scale, scale);

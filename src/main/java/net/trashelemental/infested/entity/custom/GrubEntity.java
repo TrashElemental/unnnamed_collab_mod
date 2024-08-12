@@ -147,12 +147,13 @@ public class GrubEntity extends Animal {
     //Custom Behaviors
 
     //If the Grub is fed Rotten Flesh, it has a 10% chance to grow into a Crimson Beetle.
+    //If it's fed Cocoa Beans, a Brilliant Beetle.
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemStack = pPlayer.getItemInHand(pHand);
 
         if (itemStack.is(Items.ROTTEN_FLESH)) {
-            if (!pPlayer.isCreative()) {itemStack.shrink(1);}
+            if (!pPlayer.isCreative()) { itemStack.shrink(1); }
             this.playSound(SoundEvents.GENERIC_EAT);
             for (int i = 0; i < 5; ++i) {
                 double d0 = this.random.nextGaussian() * 0.02D;
@@ -171,6 +172,32 @@ public class GrubEntity extends Animal {
                 }
                 if (this.level() instanceof ServerLevel _level) {
                     Entity entityToSpawn = ModEntities.CRIMSON_BEETLE.get().spawn(_level, BlockPos.containing(this.getX(), this.getY(), this.getZ()), MobSpawnType.MOB_SUMMONED);
+                    if (entityToSpawn != null) {
+                        entityToSpawn.setYRot(this.level().getRandom().nextFloat() * 360F);
+                    }
+                }
+            }
+            return InteractionResult.SUCCESS;
+        } else if (itemStack.is(Items.COCOA_BEANS)) {
+            if (!pPlayer.isCreative()) { itemStack.shrink(1); }
+            this.playSound(SoundEvents.GENERIC_EAT);
+            for (int i = 0; i < 5; ++i) {
+                double d0 = this.random.nextGaussian() * 0.02D;
+                double d1 = this.random.nextGaussian() * 0.02D;
+                double d2 = this.random.nextGaussian() * 0.02D;
+                this.level().addParticle(ParticleTypes.HAPPY_VILLAGER,
+                        this.getX() + (double)(this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double)this.getBbWidth(),
+                        this.getY() + 0.5D + (double)(this.random.nextFloat() * this.getBbHeight()),
+                        this.getZ() + (double)(this.random.nextFloat() * this.getBbWidth() * 2.0F) - (double)this.getBbWidth(),
+                        d0, d1, d2);
+            }
+
+            if (Math.random() >= 0.9) {
+                if (!this.level().isClientSide()) {
+                    this.discard();
+                }
+                if (this.level() instanceof ServerLevel _level) {
+                    Entity entityToSpawn = ModEntities.BRILLIANT_BEETLE.get().spawn(_level, BlockPos.containing(this.getX(), this.getY(), this.getZ()), MobSpawnType.MOB_SUMMONED);
                     if (entityToSpawn != null) {
                         entityToSpawn.setYRot(this.level().getRandom().nextFloat() * 360F);
                     }

@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.client;
+package net.trashelemental.infested.entity.client.renderers;
 
 import net.minecraft.client.model.SilverfishModel;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.trashelemental.infested.entity.custom.AttackSilverfishEntity;
-import net.trashelemental.infested.entity.custom.TamedSilverfishEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class AttackSilverfishRenderer extends MobRenderer<AttackSilverfishEntity, SilverfishModel<AttackSilverfishEntity>> {

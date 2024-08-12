@@ -24,5 +24,11 @@ public class ModModelLayers {
     public static final ModelLayerLocation ANCIENT_DEBREETLE_LAYER = new ModelLayerLocation(
             new ResourceLocation(infested.MOD_ID, "ancient_debreetle_layer"), "main");
 
+    public static final ModelLayerLocation BRILLIANT_BEETLE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "brilliant_beetle_layer"), "main");
+
+    public static final ModelLayerLocation MANTIS_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "mantis_layer"), "main");
+
 
 }

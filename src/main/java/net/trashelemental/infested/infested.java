@@ -1,9 +1,7 @@
 package net.trashelemental.infested;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -20,7 +18,7 @@ import net.trashelemental.infested.brewing.ModPotions;
 import net.trashelemental.infested.effects.ModMobEffects;
 import net.trashelemental.infested.enchantments.ModEnchantments;
 import net.trashelemental.infested.entity.ModEntities;
-import net.trashelemental.infested.entity.client.*;
+import net.trashelemental.infested.entity.client.renderers.*;
 import net.trashelemental.infested.item.ModCreativeModeTabs;
 import net.trashelemental.infested.item.ModItems;
 import net.trashelemental.infested.loot.ModLootModifiers;
@@ -93,6 +91,8 @@ public class infested
             EntityRenderers.register(ModEntities.ANCIENT_DEBREETLE.get(), AncientDebreetleRenderer::new);
             EntityRenderers.register(ModEntities.TAMED_SILVERFISH.get(), TamedSilverfishRenderer::new);
             EntityRenderers.register(ModEntities.ATTACK_SILVERFISH.get(), AttackSilverfishRenderer::new);
+            EntityRenderers.register(ModEntities.BRILLIANT_BEETLE.get(), BrilliantBeetleRenderer::new);
+            EntityRenderers.register(ModEntities.MANTIS.get(), MantisRenderer::new);
 
         }
     }

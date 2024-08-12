@@ -1,5 +1,6 @@
-// 1.20.1	2024-08-01T19:03:52.3664257	Item Models: infested
+// 1.20.1	2024-08-08T15:08:07.6296252	Item Models: infested
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/ancient_debreetle_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/brilliant_beetle_spawn_egg.json
 548e14875462cd67b9b39fbe8880aed5a83264b6 assets/infested/models/item/bug_stew.json
 c59490e98e36cf1e96cddc5f79c3aa9a4996f607 assets/infested/models/item/chitin.json
 f78d70785eed3e8bf01234c3b324399b176f1454 assets/infested/models/item/chitin_boots.json
@@ -19,6 +20,7 @@ cdce31795d957a152de0adf15b134495983c76e6 assets/infested/models/item/chitin_stai
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/harvest_beetle_spawn_egg.json
 3611cd4a5c5b0af7f1277e0ddd122378b1fe5e5e assets/infested/models/item/insect_template.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/jewel_beetle_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/mantis_spawn_egg.json
 97372b7927e2df7c7701c768c107c816fc6cb480 assets/infested/models/item/raw_grub.json
 ebf22314026be1345131e52d0ca7a671cf3e0aae assets/infested/models/item/silverfish_eggs.json
 7081959a0d7fb7fe75c19ddbf4cf31c5ec808d02 assets/infested/models/item/spider_boots.json

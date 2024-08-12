@@ -20,6 +20,13 @@ public class ModEntities {
     public static final RegistryObject<EntityType<GrubEntity>> GRUB =
             ENTITY_TYPES.register("grub", () -> EntityType.Builder.of(GrubEntity::new, MobCategory.CREATURE)
                     .sized(0.4f, 0.3f).build("grub"));
+    public static final RegistryObject<EntityType<BrilliantBeetleEntity>> BRILLIANT_BEETLE =
+            ENTITY_TYPES.register("brilliant_beetle", () -> EntityType.Builder.of(BrilliantBeetleEntity::new, MobCategory.CREATURE)
+                    .sized(1.5f, 1f).build("brilliant_beetle"));
+    public static final RegistryObject<EntityType<MantisEntity>> MANTIS =
+            ENTITY_TYPES.register("mantis", () -> EntityType.Builder.of(MantisEntity::new, MobCategory.CREATURE)
+                    .sized(1.5f, 1f).build("mantis"));
+
 
     public static final RegistryObject<EntityType<HarvestBeetleEntity>> HARVEST_BEETLE =
             ENTITY_TYPES.register("harvest_beetle", () -> EntityType.Builder.of(HarvestBeetleEntity::new, MobCategory.CREATURE)
