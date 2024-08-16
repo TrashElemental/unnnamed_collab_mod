@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom;
+package net.trashelemental.infested.entity.custom.jewelbeetles;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,10 +20,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class AncientDebreetleEntity extends Animal {
+public class HarvestBeetleEntity extends Animal {
 
 
-   public AncientDebreetleEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+   public HarvestBeetleEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -122,7 +122,7 @@ public class AncientDebreetleEntity extends Animal {
             double offsetY = (this.random.nextDouble() - 0.5);
             double offsetZ = (this.random.nextDouble() - 0.5);
             this.level().addParticle(
-                    ParticleTypes.FLAME,
+                    ParticleTypes.HAPPY_VILLAGER,
                     this.getX() + offsetX,
                     this.getY() + offsetY,
                     this.getZ() + offsetZ,
@@ -144,15 +144,14 @@ public class AncientDebreetleEntity extends Animal {
 
         if (this.age == 0) {
             if (this.level() instanceof ServerLevel serverLevel) {
-               serverLevel.sendParticles(ParticleTypes.LAVA, this.getX(), this.getY(), this.getZ(), 5, 0, 0, 0, 0);
+               serverLevel.sendParticles(ParticleTypes.POOF, this.getX(), this.getY(), this.getZ(), 5, 0, 0, 0, 0);
             }
             this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
                     SoundEvents.BEEHIVE_ENTER, this.getSoundSource(), 1.0F, 3.0F);
             this.discard();
        }
     }
-
-    //Drops more experience than the average mob
+//Drops more experience than the average mob
     @Override
     public int getExperienceReward() {
         return 10;

@@ -3,6 +3,8 @@ package net.trashelemental.infested.entity.custom;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -10,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -29,11 +32,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.entity.animations.ModAnimationDefinitions;
+import net.trashelemental.infested.entity.custom.spiders.TamedSpiderEntity;
 import net.trashelemental.infested.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -129,18 +134,44 @@ public class BrilliantBeetleEntity extends TamableAnimal {
         super.registerGoals();
         {
 
-            this.goalSelector.addGoal(0, new FollowOwnerGoal(this, 1, 10, 2, false));
+            this.goalSelector.addGoal(0, new FollowOwnerGoal(this, 1, 10, 2, false) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && follow(BrilliantBeetleEntity.this);
+                }
+            });
             this.goalSelector.addGoal(1, new FloatGoal(this));
             this.goalSelector.addGoal(2, new BreedGoal(this, 1));
             this.goalSelector.addGoal(3, new FollowParentGoal(this, 1));
             this.goalSelector.addGoal(4, new PanicGoal(this, 1.2));
-            this.goalSelector.addGoal(5, new TemptGoal(this, 1, Ingredient.of(Items.COOKIE), false));
-            this.goalSelector.addGoal(6, new TemptGoal(this, 1, Ingredient.of(Items.COCOA_BEANS), false));
-            this.goalSelector.addGoal(7, new RandomStrollGoal(this, 1));
-            this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, (float) 6));
-            this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
+            this.goalSelector.addGoal(5, new TemptGoal(this, 1, Ingredient.of(Items.COCOA_BEANS), false) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && wander(BrilliantBeetleEntity.this);
+                }
+            });
+            this.goalSelector.addGoal(6, new RandomStrollGoal(this, 1) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && wander(BrilliantBeetleEntity.this);
+                }
+            });
+            this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, (float) 6));
+            this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
         }
+    }
+
+    public static boolean follow(BrilliantBeetleEntity entity) {
+        if (entity == null)
+            return false;
+        return entity.isFollowing();
+    }
+
+    public static boolean wander(BrilliantBeetleEntity entity) {
+        if (entity == null)
+            return false;
+        return entity.isWandering();
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -195,6 +226,11 @@ public class BrilliantBeetleEntity extends TamableAnimal {
         return ModEntities.BRILLIANT_BEETLE.get().create(serverLevel);
     }
 
+    //Spawning
+
+    public static boolean canSpawn(EntityType<BrilliantBeetleEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
+        return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
+    }
 
     //Custom Behavior
 
@@ -244,44 +280,52 @@ public class BrilliantBeetleEntity extends TamableAnimal {
     }
 
     //On right click behavior
-
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
-        //Tries to tame if the item is a cookie.
-        if (itemstack.getItem() == Items.COOKIE) {
+        //Tries to tame if the item is a Cocoa Beans.
+        if (itemstack.getItem() == Items.COCOA_BEANS) {
             this.usePlayerItem(pPlayer, pHand, itemstack);
             if (!this.isTame()) {
-                if (this.random.nextInt(5) == 0) {
-                    this.tame(pPlayer);
-                    this.level().broadcastEntityEvent(this, (byte) 7);
-                } else {
-                    this.level().broadcastEntityEvent(this, (byte) 6);
-                }
+                this.tame(pPlayer);
+                this.BEHAVIOR = "FOLLOW";
+                this.level().broadcastEntityEvent(this, (byte) 7);
                 this.setPersistenceRequired();
                 return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
         }
-        //Gives speed and returns a bowl if the item is Bug Stew.
-        else if (itemstack.getItem() == ModItems.BUG_STEW.get() && this.isTame()) {
-            if (!this.level().isClientSide) {
-                if (!pPlayer.isCreative()) {
-                    itemstack.shrink(1);
-                    if (!pPlayer.getInventory().add(new ItemStack(Items.BOWL))) {
-                        pPlayer.drop(new ItemStack(Items.BOWL), false);
+
+        else if (this.isOwnedBy(pPlayer)) {
+
+            //Feeding it bug stew will give it speed for 1 minute.
+            if (itemstack.getItem() == ModItems.BUG_STEW.get()) {
+                if (!this.level().isClientSide) {
+                    if (!pPlayer.isCreative()) {
+                        itemstack.shrink(1);
+                        if (!pPlayer.getInventory().add(new ItemStack(Items.BOWL))) {
+                            pPlayer.drop(new ItemStack(Items.BOWL), false);
+                        }
                     }
+                    this.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1));
+                    this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
                 }
-                this.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1200, 1));
-                this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
             }
-            return InteractionResult.sidedSuccess(this.level().isClientSide());
+
+            //Cycle Behavior
+            else if (pPlayer.isCrouching()) {
+                cycleBehavior(pPlayer);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
+            }
+
+            //Start riding
+            else  {
+                pPlayer.startRiding(this);
+                return InteractionResult.sidedSuccess(this.level().isClientSide());
+            }
         }
-       //Start riding if it's tame.
-        else if (this.isTame()) {
-            pPlayer.startRiding(this);
-            return InteractionResult.sidedSuccess(this.level().isClientSide());
-        }
+
         else {
             InteractionResult retval = super.mobInteract(pPlayer, pHand);
             if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME) {
@@ -319,6 +363,55 @@ public class BrilliantBeetleEntity extends TamableAnimal {
     @Override
     public double getPassengersRidingOffset() {
         return super.getPassengersRidingOffset() + -0.4;
+    }
+
+    //Behavior
+    private String BEHAVIOR = "WANDER";
+
+    private void setBehaviorInPersistentData(String behavior) {
+        CompoundTag tag = this.getPersistentData();
+        tag.putString("Behavior", behavior);
+    }
+
+    public boolean isFollowing() {
+        return this.BEHAVIOR.equals("FOLLOW");
+    }
+
+    public boolean isWandering() {
+        return this.BEHAVIOR.equals("WANDER");
+    }
+
+    private void cycleBehavior(Player pPlayer) {
+        switch (this.BEHAVIOR) {
+            case "FOLLOW":
+                this.BEHAVIOR = "WANDER";
+                pPlayer.displayClientMessage(Component.literal("Brilliant Beetle will wander"), true);
+                break;
+            case "STAY":
+                this.BEHAVIOR = "FOLLOW";
+                pPlayer.displayClientMessage(Component.literal("Brilliant Beetle will follow"), true);
+                break;
+            case "WANDER":
+                this.BEHAVIOR = "STAY";
+                pPlayer.displayClientMessage(Component.literal("Brilliant Beetle will stay"), true);
+                break;
+        }
+        this.setBehaviorInPersistentData(this.BEHAVIOR);
+    }
+
+    //NBT Tags
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putString("Behavior", this.BEHAVIOR);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if (compound.contains("Behavior")) {
+            this.BEHAVIOR = compound.getString("Behavior");
+        }
     }
 
 

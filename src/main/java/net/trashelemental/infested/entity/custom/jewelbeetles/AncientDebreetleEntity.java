@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom;
+package net.trashelemental.infested.entity.custom.jewelbeetles;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,10 +20,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class ChorusBeetleEntity extends Animal {
+public class AncientDebreetleEntity extends Animal {
 
 
-   public ChorusBeetleEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+   public AncientDebreetleEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -122,7 +122,7 @@ public class ChorusBeetleEntity extends Animal {
             double offsetY = (this.random.nextDouble() - 0.5);
             double offsetZ = (this.random.nextDouble() - 0.5);
             this.level().addParticle(
-                    ParticleTypes.PORTAL,
+                    ParticleTypes.FLAME,
                     this.getX() + offsetX,
                     this.getY() + offsetY,
                     this.getZ() + offsetZ,
@@ -138,34 +138,24 @@ public class ChorusBeetleEntity extends Animal {
     public void tick() {
         super.tick();
 
-        if (this.level().isClientSide) {
-            setupAnimationStates();
-        }
+        if(this.level().isClientSide) {
+          setupAnimationStates();
+       }
 
         if (this.age == 0) {
             if (this.level() instanceof ServerLevel serverLevel) {
-                for (int i = 0; i < 10; i++) {
-                    double offsetX = (this.random.nextDouble() - 0.5);
-                    double offsetY = (this.random.nextDouble() - 0.5);
-                    double offsetZ = (this.random.nextDouble() - 0.5);
-                    serverLevel.sendParticles(
-                            ParticleTypes.PORTAL,
-                            this.getX() + offsetX,
-                            this.getY() + offsetY,
-                            this.getZ() + offsetZ,
-                            1, 0, 0, 0, 0);
-                }
-                this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
-                        SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
-                this.discard();
+               serverLevel.sendParticles(ParticleTypes.LAVA, this.getX(), this.getY(), this.getZ(), 5, 0, 0, 0, 0);
             }
-        }
+            this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                    SoundEvents.BEEHIVE_ENTER, this.getSoundSource(), 1.0F, 3.0F);
+            this.discard();
+       }
     }
 
-        //Drops more experience than the average mob
-        @Override
-        public int getExperienceReward () {
-            return 10;
-        }
-}
+    //Drops more experience than the average mob
+    @Override
+    public int getExperienceReward() {
+        return 10;
+    }
 
+}

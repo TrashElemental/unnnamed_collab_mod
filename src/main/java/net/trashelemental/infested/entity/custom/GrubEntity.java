@@ -8,6 +8,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -142,6 +145,18 @@ public class GrubEntity extends Animal {
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
         return null;
+    }
+
+    //Spawning
+
+    public static boolean canSpawn(EntityType<GrubEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
+        BlockState blockBelow = level.getBlockState(position.below());
+        return !blockBelow.is(Blocks.NETHER_WART_BLOCK)
+                && !blockBelow.is(Blocks.SHROOMLIGHT)
+                && !blockBelow.is(Blocks.LAVA)
+                && !blockBelow.is(Blocks.MAGMA_BLOCK)
+                && !level.getBlockState(position.below()).getFluidState().is(FluidTags.LAVA)
+                && !level.getBlockState(position.below()).is(Blocks.FIRE);
     }
 
     //Custom Behaviors

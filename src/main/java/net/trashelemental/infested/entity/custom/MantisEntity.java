@@ -3,6 +3,10 @@ package net.trashelemental.infested.entity.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -11,7 +15,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -36,10 +42,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.trashelemental.infested.entity.ModEntities;
+import net.trashelemental.infested.entity.custom.spiders.TamedSpiderEntity;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.ModItems;
 import net.trashelemental.infested.util.MantisAttackGoal;
@@ -117,27 +128,64 @@ public class MantisEntity extends TamableAnimal {
     protected void registerGoals() {
         super.registerGoals();
         {
-            this.goalSelector.addGoal(0, new OwnerHurtByTargetGoal(this));
-            this.targetSelector.addGoal(1, new OwnerHurtTargetGoal(this));
+            this.goalSelector.addGoal(0, new OwnerHurtByTargetGoal(this) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && follow(MantisEntity.this);
+                }
+            });
+            this.targetSelector.addGoal(1, new OwnerHurtTargetGoal(this) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && follow(MantisEntity.this);
+                }
+            });
             this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
             this.targetSelector.addGoal(3, new MantisAttackGoal<>(
-                    this, LivingEntity.class, true, (entity) -> entity.getType().is(PREY)
-            ));
+                    this, LivingEntity.class, true, (entity) -> entity.getType().is(PREY))
+            {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && wander(MantisEntity.this);
+                }
+            });
             this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, false) {
                 @Override
                 protected double getAttackReachSqr(LivingEntity entity) {
                     return 4;
                 }
             });
-            this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1, 10, 2, false));
+            this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1, 10, 2, false) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && follow(MantisEntity.this);
+                }
+            });
             this.goalSelector.addGoal(6, new FloatGoal(this));
             this.goalSelector.addGoal(7, new BreedGoal(this, 1));
             this.goalSelector.addGoal(8, new FollowParentGoal(this, 1));
             this.goalSelector.addGoal(9, new TemptGoal(this, 1, Ingredient.of(Items.SPIDER_EYE), false));
-            this.goalSelector.addGoal(10, new RandomStrollGoal(this, 1));
+            this.goalSelector.addGoal(10, new RandomStrollGoal(this, 1) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && wander(MantisEntity.this);
+                }
+            });
             this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, (float) 6));
             this.goalSelector.addGoal(12, new RandomLookAroundGoal(this));
         }
+    }
+
+    public static boolean follow(MantisEntity entity) {
+        if (entity == null)
+            return false;
+        return entity.isFollowing();
+    }
+
+    public static boolean wander(MantisEntity entity) {
+        if (entity == null)
+            return false;
+        return entity.isWandering();
     }
 
     private static final TagKey<EntityType<?>> PREY = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("infested:mantis_prey"));
@@ -194,6 +242,13 @@ public class MantisEntity extends TamableAnimal {
         return ModEntities.MANTIS.get().create(serverLevel);
     }
 
+    //Spawning
+
+public static boolean canSpawn(EntityType<MantisEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
+        return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
+}
+
+
 
     //Custom Behavior
 
@@ -208,6 +263,7 @@ public class MantisEntity extends TamableAnimal {
             if (!this.isTame()) {
                 if (this.random.nextInt(5) == 0) {
                     this.tame(pPlayer);
+                    this.BEHAVIOR = "FOLLOW";
                     this.level().broadcastEntityEvent(this, (byte) 7);
                 } else {
                     this.level().broadcastEntityEvent(this, (byte) 6);
@@ -220,9 +276,63 @@ public class MantisEntity extends TamableAnimal {
             if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME) {
                 this.setPersistenceRequired();
             }
+
+            if (this.isOwnedBy(pPlayer)) {
+                cycleBehavior(pPlayer);
+            }
+
             return retval;
         }
         return InteractionResult.PASS;
+    }
+
+    //Behavior
+    private String BEHAVIOR = "WANDER";
+
+    private void setBehaviorInPersistentData(String behavior) {
+        CompoundTag tag = this.getPersistentData();
+        tag.putString("Behavior", behavior);
+    }
+
+    public boolean isFollowing() {
+        return this.BEHAVIOR.equals("FOLLOW");
+    }
+
+    public boolean isWandering() {
+        return this.BEHAVIOR.equals("WANDER");
+    }
+
+    private void cycleBehavior(Player pPlayer) {
+        switch (this.BEHAVIOR) {
+            case "FOLLOW":
+                this.BEHAVIOR = "WANDER";
+                pPlayer.displayClientMessage(Component.literal("Mantis will wander"), true);
+                break;
+            case "STAY":
+                this.BEHAVIOR = "FOLLOW";
+                pPlayer.displayClientMessage(Component.literal("Mantis will follow"), true);
+                break;
+            case "WANDER":
+                this.BEHAVIOR = "STAY";
+                pPlayer.displayClientMessage(Component.literal("Mantis will stay"), true);
+                break;
+        }
+        this.setBehaviorInPersistentData(this.BEHAVIOR);
+    }
+
+    //NBT Tags
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putString("Behavior", this.BEHAVIOR);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if (compound.contains("Behavior")) {
+            this.BEHAVIOR = compound.getString("Behavior");
+        }
     }
 
     //Gliding Behavior

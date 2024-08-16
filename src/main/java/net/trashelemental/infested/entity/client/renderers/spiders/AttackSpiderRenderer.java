@@ -1,8 +1,10 @@
-package net.trashelemental.infested.entity.client.renderers;
+package net.trashelemental.infested.entity.client.renderers.spiders;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.SpiderModel;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -11,27 +13,29 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.trashelemental.infested.entity.client.models.JewelBeetleModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
-import net.trashelemental.infested.entity.custom.ChorusBeetleEntity;
+import net.trashelemental.infested.entity.client.renderers.jewelbeetles.JewelBeetleRenderer;
+import net.trashelemental.infested.entity.custom.jewelbeetles.AncientDebreetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
+import net.trashelemental.infested.entity.custom.spiders.AttackSpiderEntity;
 import net.trashelemental.infested.infested;
+import org.jetbrains.annotations.NotNull;
 
-public class ChorusBeetleRenderer extends MobRenderer<ChorusBeetleEntity, JewelBeetleModel<ChorusBeetleEntity>> {
+public class AttackSpiderRenderer extends MobRenderer<AttackSpiderEntity, SpiderModel<AttackSpiderEntity>> {
 
-    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/chorus_beetle.png");
-    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/chorus_beetle_glow.png");
+    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/cave_spider.png");
+    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_red.png");
 
-    public ChorusBeetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModModelLayers.CHORUS_BEETLE_LAYER)), 0.3f);
-        this.addLayer(new EmissiveLayer<>(this));
+    public AttackSpiderRenderer(EntityRendererProvider.Context context) {
+        super(context, new SpiderModel<>(context.bakeLayer(ModelLayers.SPIDER)), 0.3f);
+        this.addLayer(new AttackSpiderRenderer.EmissiveLayer<>(this));
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ChorusBeetleEntity entity) {
+    public ResourceLocation getTextureLocation(AttackSpiderEntity entity) {
         return MAIN_TEXTURE;
     }
 
-    private static class EmissiveLayer<T extends ChorusBeetleEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
+    private static class EmissiveLayer<T extends AttackSpiderEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
         public EmissiveLayer(RenderLayerParent<T, M> parent) {
             super(parent);
@@ -45,7 +49,7 @@ public class ChorusBeetleRenderer extends MobRenderer<ChorusBeetleEntity, JewelB
     }
 
     @Override
-    public void render(ChorusBeetleEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(AttackSpiderEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         float scale = 0.5f;
         pPoseStack.pushPose();
         pPoseStack.scale(scale, scale, scale);
@@ -53,3 +57,4 @@ public class ChorusBeetleRenderer extends MobRenderer<ChorusBeetleEntity, JewelB
         pPoseStack.popPose();
     }
 }
+

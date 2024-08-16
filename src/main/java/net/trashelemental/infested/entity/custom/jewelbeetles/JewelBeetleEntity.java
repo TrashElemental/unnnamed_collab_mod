@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom;
+package net.trashelemental.infested.entity.custom.jewelbeetles;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

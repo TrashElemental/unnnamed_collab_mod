@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "crimson_forest",
+  "spawners": {
+    "type": "infested:crimson_beetle",
+    "weight": 25,
+    "minCount": 2,
+    "maxCount": 6
+  }
+}

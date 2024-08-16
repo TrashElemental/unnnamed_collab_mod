@@ -1,8 +1,10 @@
-package net.trashelemental.infested.entity.client.renderers;
+package net.trashelemental.infested.entity.client.renderers.spiders;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.SpiderModel;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -11,27 +13,26 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.trashelemental.infested.entity.client.models.JewelBeetleModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
-import net.trashelemental.infested.entity.custom.AncientDebreetleEntity;
+import net.trashelemental.infested.entity.custom.spiders.AttackSpiderEntity;
+import net.trashelemental.infested.entity.custom.spiders.TamedSpiderEntity;
 import net.trashelemental.infested.infested;
+import org.jetbrains.annotations.NotNull;
 
-public class AncientDebreetleRenderer extends MobRenderer<AncientDebreetleEntity, JewelBeetleModel<AncientDebreetleEntity>> {
+public class TamedSpiderRenderer extends MobRenderer<TamedSpiderEntity, SpiderModel<TamedSpiderEntity>> {
+    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/cave_spider.png");
+    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_green.png");
 
-    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/debris_beetle.png");
-    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/debris_beetle_glow.png");
-
-    public AncientDebreetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModModelLayers.ANCIENT_DEBREETLE_LAYER)), 0.3f);
-        this.addLayer(new EmissiveLayer<>(this));
+    public TamedSpiderRenderer(EntityRendererProvider.Context context) {
+        super(context, new SpiderModel<>(context.bakeLayer(ModelLayers.SPIDER)), 0.5f);
+        this.addLayer(new TamedSpiderRenderer.EmissiveLayer<>(this));
     }
 
     @Override
-    public ResourceLocation getTextureLocation(AncientDebreetleEntity entity) {
+    public ResourceLocation getTextureLocation(TamedSpiderEntity entity) {
         return MAIN_TEXTURE;
     }
 
-    private static class EmissiveLayer<T extends AncientDebreetleEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
+    private static class EmissiveLayer<T extends TamedSpiderEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
         public EmissiveLayer(RenderLayerParent<T, M> parent) {
             super(parent);
@@ -45,11 +46,12 @@ public class AncientDebreetleRenderer extends MobRenderer<AncientDebreetleEntity
     }
 
     @Override
-    public void render(AncientDebreetleEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        float scale = 0.5f;
+    public void render(TamedSpiderEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+        float scale = 0.7f;
         pPoseStack.pushPose();
         pPoseStack.scale(scale, scale, scale);
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
         pPoseStack.popPose();
     }
 }
+

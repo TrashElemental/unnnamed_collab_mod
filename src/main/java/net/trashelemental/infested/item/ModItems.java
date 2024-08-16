@@ -11,6 +11,7 @@ import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.custom.BugStewItem;
 import net.trashelemental.infested.item.custom.SilverfishEggsItem;
+import net.trashelemental.infested.item.custom.SpiderEggItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -43,7 +44,7 @@ public class ModItems {
             () -> new SilverfishEggsItem(new Item.Properties()));
 
     public static final RegistryObject<Item> SPIDER_EGG = ITEMS.register("spider_egg",
-            () -> new Item(new Item.Properties()));
+            () -> new SpiderEggItem(new Item.Properties()));
 
     //Armor Items
     public static final RegistryObject<Item> CHITIN_HELMET = ITEMS.register("chitin_helmet",

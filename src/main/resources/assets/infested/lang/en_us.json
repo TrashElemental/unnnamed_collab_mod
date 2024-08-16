@@ -68,11 +68,16 @@
   "entity.infested.grub": "Grub",
   "entity.infested.crimson_beetle": "Crimson Beetle",
   "entity.infested.brilliant_beetle": "Brilliant Beetle",
+  "entity.infested.mantis": "Mantis",
+
   "entity.infested.harvest_beetle": "Harvest Beetle",
   "entity.infested.jewel_beetle": "Jewel Beetle",
-  "entity.infested.mantis": "Mantis",
   "entity.infested.chorus_beetle": "Chorus Beetle",
   "entity.infested.ancient_debreetle": "Ancient Debreetle",
+
   "entity.infested.tamed_silverfish": "Silverfish",
-  "entity.infested.attack_silverfish": "Silverfish"
+  "entity.infested.attack_silverfish": "Silverfish",
+  "entity.infested.tamed_spider": "Spider",
+  "entity.infested.spider_minion": "Spider",
+  "entity.infested.attack_spider": "Spider"
 }

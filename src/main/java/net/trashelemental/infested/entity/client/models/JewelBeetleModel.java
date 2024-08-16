@@ -10,10 +10,10 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.trashelemental.infested.entity.animations.ModAnimationDefinitions;
-import net.trashelemental.infested.entity.custom.AncientDebreetleEntity;
-import net.trashelemental.infested.entity.custom.ChorusBeetleEntity;
-import net.trashelemental.infested.entity.custom.HarvestBeetleEntity;
-import net.trashelemental.infested.entity.custom.JewelBeetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.AncientDebreetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.ChorusBeetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.HarvestBeetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
 
 public class JewelBeetleModel<T extends Entity> extends HierarchicalModel<T> {
 

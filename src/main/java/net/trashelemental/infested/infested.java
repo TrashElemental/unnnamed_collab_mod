@@ -19,6 +19,15 @@ import net.trashelemental.infested.effects.ModMobEffects;
 import net.trashelemental.infested.enchantments.ModEnchantments;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.entity.client.renderers.*;
+import net.trashelemental.infested.entity.client.renderers.jewelbeetles.AncientDebreetleRenderer;
+import net.trashelemental.infested.entity.client.renderers.jewelbeetles.ChorusBeetleRenderer;
+import net.trashelemental.infested.entity.client.renderers.jewelbeetles.HarvestBeetleRenderer;
+import net.trashelemental.infested.entity.client.renderers.jewelbeetles.JewelBeetleRenderer;
+import net.trashelemental.infested.entity.client.renderers.silverfish.AttackSilverfishRenderer;
+import net.trashelemental.infested.entity.client.renderers.silverfish.TamedSilverfishRenderer;
+import net.trashelemental.infested.entity.client.renderers.spiders.AttackSpiderRenderer;
+import net.trashelemental.infested.entity.client.renderers.spiders.SpiderMinionRenderer;
+import net.trashelemental.infested.entity.client.renderers.spiders.TamedSpiderRenderer;
 import net.trashelemental.infested.item.ModCreativeModeTabs;
 import net.trashelemental.infested.item.ModItems;
 import net.trashelemental.infested.loot.ModLootModifiers;
@@ -93,6 +102,10 @@ public class infested
             EntityRenderers.register(ModEntities.ATTACK_SILVERFISH.get(), AttackSilverfishRenderer::new);
             EntityRenderers.register(ModEntities.BRILLIANT_BEETLE.get(), BrilliantBeetleRenderer::new);
             EntityRenderers.register(ModEntities.MANTIS.get(), MantisRenderer::new);
+            EntityRenderers.register(ModEntities.TAMED_SPIDER.get(), TamedSpiderRenderer::new);
+            EntityRenderers.register(ModEntities.SPIDER_MINION.get(), SpiderMinionRenderer::new);
+            EntityRenderers.register(ModEntities.ATTACK_SPIDER.get(), AttackSpiderRenderer::new);
+
 
         }
     }

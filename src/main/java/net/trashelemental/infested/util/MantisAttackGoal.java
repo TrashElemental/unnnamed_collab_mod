@@ -16,7 +16,7 @@ public class MantisAttackGoal<T extends LivingEntity> extends NearestAttackableT
     }
 
     public boolean canUse() {
-        return !this.tamableMob.isTame() && super.canUse();
+        return super.canUse();
     }
 
     public boolean canContinueToUse() {
