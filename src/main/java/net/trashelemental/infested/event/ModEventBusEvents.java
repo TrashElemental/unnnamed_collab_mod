@@ -28,6 +28,7 @@ public class ModEventBusEvents {
         event.put(ModEntities.GRUB.get(), GrubEntity.createAttributes().build());
         event.put(ModEntities.BRILLIANT_BEETLE.get(), BrilliantBeetleEntity.createAttributes().build());
         event.put(ModEntities.MANTIS.get(), MantisEntity.createAttributes().build());
+        event.put(ModEntities.ORCHID_MANTIS.get(), OrchidMantisEntity.createAttributes().build());
 
         event.put(ModEntities.HARVEST_BEETLE.get(), HarvestBeetleEntity.createAttributes().build());
         event.put(ModEntities.JEWEL_BEETLE.get(), JewelBeetleEntity.createAttributes().build());
@@ -46,6 +47,8 @@ public class ModEventBusEvents {
 
         event.register(ModEntities.MANTIS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 MantisEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ModEntities.ORCHID_MANTIS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                OrchidMantisEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ModEntities.BRILLIANT_BEETLE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 BrilliantBeetleEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ModEntities.CRIMSON_BEETLE.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

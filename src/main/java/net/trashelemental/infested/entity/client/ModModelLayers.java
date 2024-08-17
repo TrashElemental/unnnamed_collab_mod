@@ -30,5 +30,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation MANTIS_LAYER = new ModelLayerLocation(
             new ResourceLocation(infested.MOD_ID, "mantis_layer"), "main");
 
+    public static final ModelLayerLocation ORCHID_MANTIS_LAYER = new ModelLayerLocation(
+            new ResourceLocation(infested.MOD_ID, "orchid_mantis_layer"), "main");
+
 
 }

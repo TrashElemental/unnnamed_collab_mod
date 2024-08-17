@@ -17,6 +17,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.GRUB_LAYER, GrubModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BRILLIANT_BEETLE_LAYER, BrilliantBeetleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.MANTIS_LAYER, MantisModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ORCHID_MANTIS_LAYER, MantisModel::createBodyLayer);
 
         event.registerLayerDefinition(ModModelLayers.HARVEST_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.JEWEL_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);

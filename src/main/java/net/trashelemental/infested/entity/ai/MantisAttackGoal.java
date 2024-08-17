@@ -1,4 +1,4 @@
-package net.trashelemental.infested.util;
+package net.trashelemental.infested.entity.ai;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;

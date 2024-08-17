@@ -32,6 +32,7 @@ public class ModEntityLootTables extends EntityLootSubProvider {
         add(ModEntities.ANCIENT_DEBREETLE.get(), createAncientDebreetleLootTable());
         add(ModEntities.BRILLIANT_BEETLE.get(), createBrilliantBeetleLootTable());
         add(ModEntities.MANTIS.get(), createMantisLootTable());
+        add(ModEntities.ORCHID_MANTIS.get(), createOrchidMantisLootTable());
     }
 
     private LootTable.Builder createCrimsonBeetleLootTable() {
@@ -142,6 +143,15 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                                 .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1)))));
     }
 
+    private LootTable.Builder createOrchidMantisLootTable() {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .setRolls(UniformGenerator.between(1.0F, 1.0F))
+                        .add(LootItem.lootTableItem(ModItems.CHITIN.get())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1)))));
+    }
+
 
 
     @Override
@@ -154,7 +164,8 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                 ModEntities.CHORUS_BEETLE.get(),
                 ModEntities.ANCIENT_DEBREETLE.get(),
                 ModEntities.BRILLIANT_BEETLE.get(),
-                ModEntities.MANTIS.get()
+                ModEntities.MANTIS.get(),
+                ModEntities.ORCHID_MANTIS.get()
         );
     }
 }

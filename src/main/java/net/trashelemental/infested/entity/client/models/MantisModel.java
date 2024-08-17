@@ -12,6 +12,9 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.trashelemental.infested.entity.animations.ModAnimationDefinitions;
 import net.trashelemental.infested.entity.custom.MantisEntity;
+import net.trashelemental.infested.entity.custom.OrchidMantisEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.HarvestBeetleEntity;
+import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
 
 public class MantisModel<T extends Entity> extends HierarchicalModel<T> {
 
@@ -120,7 +123,18 @@ public class MantisModel<T extends Entity> extends HierarchicalModel<T> {
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
 		this.animateWalk(ModAnimationDefinitions.MANTIS_WALK, limbSwing, limbSwingAmount, 1f, 2.5f);
-		this.animate(((MantisEntity) entity).idleAnimationState, ModAnimationDefinitions.MANTIS_IDLE, ageInTicks, 1f);
+
+		if (entity instanceof MantisEntity) {
+			this.animate(((MantisEntity) entity).idleAnimationState, ModAnimationDefinitions.MANTIS_IDLE, ageInTicks, 1f);
+		} else if (entity instanceof OrchidMantisEntity) {
+			this.animate(((OrchidMantisEntity) entity).idleAnimationState, ModAnimationDefinitions.MANTIS_IDLE, ageInTicks, 1f);
+		}
+
+		if (entity instanceof MantisEntity) {
+			this.animate(((MantisEntity) entity).attackAnimationState, ModAnimationDefinitions.MANTIS_ATTACK, ageInTicks, 1f);
+		} else if (entity instanceof OrchidMantisEntity) {
+			this.animate(((OrchidMantisEntity) entity).attackAnimationState, ModAnimationDefinitions.MANTIS_ATTACK, ageInTicks, 1f);
+		}
 	}
 
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {

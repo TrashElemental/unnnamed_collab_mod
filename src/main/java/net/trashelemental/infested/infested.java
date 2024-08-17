@@ -102,6 +102,7 @@ public class infested
             EntityRenderers.register(ModEntities.ATTACK_SILVERFISH.get(), AttackSilverfishRenderer::new);
             EntityRenderers.register(ModEntities.BRILLIANT_BEETLE.get(), BrilliantBeetleRenderer::new);
             EntityRenderers.register(ModEntities.MANTIS.get(), MantisRenderer::new);
+            EntityRenderers.register(ModEntities.ORCHID_MANTIS.get(), OrchidMantisRenderer::new);
             EntityRenderers.register(ModEntities.TAMED_SPIDER.get(), TamedSpiderRenderer::new);
             EntityRenderers.register(ModEntities.SPIDER_MINION.get(), SpiderMinionRenderer::new);
             EntityRenderers.register(ModEntities.ATTACK_SPIDER.get(), AttackSpiderRenderer::new);

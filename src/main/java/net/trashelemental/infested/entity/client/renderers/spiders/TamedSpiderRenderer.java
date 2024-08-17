@@ -18,18 +18,40 @@ import net.trashelemental.infested.entity.custom.spiders.TamedSpiderEntity;
 import net.trashelemental.infested.infested;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TamedSpiderRenderer extends MobRenderer<TamedSpiderEntity, SpiderModel<TamedSpiderEntity>> {
-    private static final ResourceLocation MAIN_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/cave_spider.png");
-    private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_green.png");
+    private static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/cave_spider.png");
+    private static final Map<String, ResourceLocation> EYE_TEXTURES = new HashMap<>();
+
+    static {
+        EYE_TEXTURES.put("BLACK", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_black.png"));
+        EYE_TEXTURES.put("BLUE", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_blue.png"));
+        EYE_TEXTURES.put("BROWN", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_brown.png"));
+        EYE_TEXTURES.put("CYAN", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_cyan.png"));
+        EYE_TEXTURES.put("GRAY", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_gray.png"));
+        EYE_TEXTURES.put("GREEN", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_green.png"));
+        EYE_TEXTURES.put("LIGHT_BLUE", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_light_blue.png"));
+        EYE_TEXTURES.put("LIGHT_GRAY", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_light_gray.png"));
+        EYE_TEXTURES.put("LIME", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_lime.png"));
+        EYE_TEXTURES.put("MAGENTA", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_magenta.png"));
+        EYE_TEXTURES.put("ORANGE", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_orange.png"));
+        EYE_TEXTURES.put("PINK", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_pink.png"));
+        EYE_TEXTURES.put("PURPLE", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_purple.png"));
+        EYE_TEXTURES.put("RED", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_red.png"));
+        EYE_TEXTURES.put("WHITE", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_white.png"));
+        EYE_TEXTURES.put("YELLOW", new ResourceLocation(infested.MOD_ID, "textures/entity/spider_eye_yellow.png"));
+    }
 
     public TamedSpiderRenderer(EntityRendererProvider.Context context) {
         super(context, new SpiderModel<>(context.bakeLayer(ModelLayers.SPIDER)), 0.5f);
-        this.addLayer(new TamedSpiderRenderer.EmissiveLayer<>(this));
+        this.addLayer(new EmissiveLayer<>(this));
     }
 
     @Override
     public ResourceLocation getTextureLocation(TamedSpiderEntity entity) {
-        return MAIN_TEXTURE;
+        return DEFAULT_TEXTURE;
     }
 
     private static class EmissiveLayer<T extends TamedSpiderEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
@@ -40,18 +62,12 @@ public class TamedSpiderRenderer extends MobRenderer<TamedSpiderEntity, SpiderMo
 
         @Override
         public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.eyes(EMISSIVE_TEXTURE));
+            String eyeColor = entity.getEyeColor();
+            ResourceLocation texture = EYE_TEXTURES.getOrDefault(eyeColor, EYE_TEXTURES.get("GREEN"));
+
+            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.eyes(texture));
             this.getParentModel().renderToBuffer(poseStack, vertexConsumer, packedLight, LivingEntityRenderer.getOverlayCoords(entity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
         }
-    }
-
-    @Override
-    public void render(TamedSpiderEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        float scale = 0.7f;
-        pPoseStack.pushPose();
-        pPoseStack.scale(scale, scale, scale);
-        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
-        pPoseStack.popPose();
     }
 }
 

@@ -27,6 +27,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -39,6 +40,7 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -225,7 +227,7 @@ public class TamedSpiderEntity extends TamableAnimal {
         }
     }
 
-    //Right click events
+    // Right click events
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemStack = pPlayer.getItemInHand(pHand);
@@ -234,8 +236,15 @@ public class TamedSpiderEntity extends TamableAnimal {
             return InteractionResult.SUCCESS;
         }
 
+        if (isDyeItem(itemStack, pPlayer)) {
+            return InteractionResult.SUCCESS;
+        }
+
         if (this.isOwnedBy(pPlayer)) {
             cycleBehavior(pPlayer);
+
+            String currentEyeColor = this.getEyeColor();
+            pPlayer.displayClientMessage(Component.literal("Current eye color: " + currentEyeColor), false);
         }
 
         return super.mobInteract(pPlayer, pHand);
@@ -334,12 +343,58 @@ public class TamedSpiderEntity extends TamableAnimal {
         return super.doHurtTarget(pEntity);
     }
 
+    //Eye Colors
+    private String EYE_COLOR = "GREEN";
+
+    private void setEyeColorInPersistentData(String eyeColor) {
+        CompoundTag tag = this.getPersistentData();
+        tag.putString("EyeColor", eyeColor);
+    }
+
+    private static final Map<Item, String> DYE_COLOR_MAP = new HashMap<>();
+    static {
+        DYE_COLOR_MAP.put(Items.BLACK_DYE, "BLACK");
+        DYE_COLOR_MAP.put(Items.BLUE_DYE, "BLUE");
+        DYE_COLOR_MAP.put(Items.BROWN_DYE, "BROWN");
+        DYE_COLOR_MAP.put(Items.CYAN_DYE, "CYAN");
+        DYE_COLOR_MAP.put(Items.GRAY_DYE, "GRAY");
+        DYE_COLOR_MAP.put(Items.GREEN_DYE, "GREEN");
+        DYE_COLOR_MAP.put(Items.LIGHT_BLUE_DYE, "LIGHT_BLUE");
+        DYE_COLOR_MAP.put(Items.LIGHT_GRAY_DYE, "LIGHT_GRAY");
+        DYE_COLOR_MAP.put(Items.LIME_DYE, "LIME");
+        DYE_COLOR_MAP.put(Items.MAGENTA_DYE, "MAGENTA");
+        DYE_COLOR_MAP.put(Items.ORANGE_DYE, "ORANGE");
+        DYE_COLOR_MAP.put(Items.PINK_DYE, "PINK");
+        DYE_COLOR_MAP.put(Items.PURPLE_DYE, "PURPLE");
+        DYE_COLOR_MAP.put(Items.RED_DYE, "RED");
+        DYE_COLOR_MAP.put(Items.WHITE_DYE, "WHITE");
+        DYE_COLOR_MAP.put(Items.YELLOW_DYE, "YELLOW");
+    }
+
+    private boolean isDyeItem(ItemStack itemStack, Player pPlayer) {
+        if (this.isOwnedBy(pPlayer)) {
+            String color = DYE_COLOR_MAP.get(itemStack.getItem());
+            if (color != null) {
+                this.EYE_COLOR = color;
+                if (!pPlayer.isCreative()) {
+                    itemStack.shrink(1);
+                }
+                this.setEyeColorInPersistentData(this.EYE_COLOR);
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     //NBT Tags
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putString("PotionEffect", this.POTION_EFFECT);
         compound.putString("Behavior", this.BEHAVIOR);
+        compound.putString("EyeColor", this.EYE_COLOR);
     }
 
     @Override
@@ -351,6 +406,14 @@ public class TamedSpiderEntity extends TamableAnimal {
         if (compound.contains("Behavior")) {
             this.BEHAVIOR = compound.getString("Behavior");
         }
+        if (compound.contains("EyeColor")) {
+            this.EYE_COLOR = compound.getString("EyeColor");
+        }
+
+    }
+
+    public String getEyeColor() {
+        return this.EYE_COLOR;
     }
 
 

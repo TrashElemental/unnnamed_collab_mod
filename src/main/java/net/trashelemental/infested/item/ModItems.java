@@ -73,7 +73,9 @@ public class ModItems {
     public static final RegistryObject<Item> BRILLIANT_BEETLE_SPAWN_EGG = ITEMS.register("brilliant_beetle_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.BRILLIANT_BEETLE, -12109477, -16723242, new Item.Properties()));
     public static final RegistryObject<Item> MANTIS_SPAWN_EGG = ITEMS.register("mantis_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.MANTIS, -10965967, -7089603, new Item.Properties()));
+            () -> new ForgeSpawnEggItem(ModEntities.MANTIS, -16751104, -13382656, new Item.Properties()));
+    public static final RegistryObject<Item> ORCHID_MANTIS_SPAWN_EGG = ITEMS.register("orchid_mantis_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ORCHID_MANTIS, -1270065, -6666, new Item.Properties()));
 
     public static final RegistryObject<Item> HARVEST_BEETLE_SPAWN_EGG = ITEMS.register("harvest_beetle_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.HARVEST_BEETLE, -13408768, -6684826, new Item.Properties()));

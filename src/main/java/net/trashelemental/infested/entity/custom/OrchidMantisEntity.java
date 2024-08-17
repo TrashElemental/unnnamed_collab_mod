@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -30,25 +29,22 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.entity.ai.MantisAttackGoal;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Objects;
 
-public class MantisEntity extends TamableAnimal {
+public class OrchidMantisEntity extends TamableAnimal {
 
 
-    public MantisEntity(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
+    public OrchidMantisEntity(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(MantisEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(OrchidMantisEntity.class, EntityDataSerializers.BOOLEAN);
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
@@ -115,13 +111,13 @@ public class MantisEntity extends TamableAnimal {
             this.goalSelector.addGoal(0, new OwnerHurtByTargetGoal(this) {
                 @Override
                 public boolean canUse() {
-                    return super.canUse() && follow(MantisEntity.this);
+                    return super.canUse() && follow(OrchidMantisEntity.this);
                 }
             });
             this.targetSelector.addGoal(1, new OwnerHurtTargetGoal(this) {
                 @Override
                 public boolean canUse() {
-                    return super.canUse() && follow(MantisEntity.this);
+                    return super.canUse() && follow(OrchidMantisEntity.this);
                 }
             });
             this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
@@ -130,7 +126,7 @@ public class MantisEntity extends TamableAnimal {
             {
                 @Override
                 public boolean canUse() {
-                    return super.canUse() && wander(MantisEntity.this);
+                    return super.canUse() && wander(OrchidMantisEntity.this);
                 }
             });
             this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, false) {
@@ -154,7 +150,7 @@ public class MantisEntity extends TamableAnimal {
             this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1, 10, 2, false) {
                 @Override
                 public boolean canUse() {
-                    return super.canUse() && follow(MantisEntity.this);
+                    return super.canUse() && follow(OrchidMantisEntity.this);
                 }
             });
             this.goalSelector.addGoal(6, new FloatGoal(this));
@@ -165,7 +161,7 @@ public class MantisEntity extends TamableAnimal {
             this.goalSelector.addGoal(11, new RandomStrollGoal(this, 1) {
                 @Override
                 public boolean canUse() {
-                    return super.canUse() && wander(MantisEntity.this);
+                    return super.canUse() && wander(OrchidMantisEntity.this);
                 }
             });
             this.goalSelector.addGoal(12, new LookAtPlayerGoal(this, Player.class, (float) 6));
@@ -173,13 +169,13 @@ public class MantisEntity extends TamableAnimal {
         }
     }
 
-    public static boolean follow(MantisEntity entity) {
+    public static boolean follow(OrchidMantisEntity entity) {
         if (entity == null)
             return false;
         return entity.isFollowing();
     }
 
-    public static boolean wander(MantisEntity entity) {
+    public static boolean wander(OrchidMantisEntity entity) {
         if (entity == null)
             return false;
         return entity.isWandering();
@@ -236,12 +232,12 @@ public class MantisEntity extends TamableAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return ModEntities.MANTIS.get().create(serverLevel);
+        return ModEntities.ORCHID_MANTIS.get().create(serverLevel);
     }
 
     //Spawning
 
-public static boolean canSpawn(EntityType<MantisEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
+public static boolean canSpawn(EntityType<OrchidMantisEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
         return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
 }
 

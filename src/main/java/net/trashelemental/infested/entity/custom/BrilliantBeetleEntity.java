@@ -150,14 +150,20 @@ public class BrilliantBeetleEntity extends TamableAnimal {
                     return super.canUse() && wander(BrilliantBeetleEntity.this);
                 }
             });
-            this.goalSelector.addGoal(6, new RandomStrollGoal(this, 1) {
+            this.goalSelector.addGoal(6, new TemptGoal(this, 1, Ingredient.of(Items.COOKIE), false) {
                 @Override
                 public boolean canUse() {
                     return super.canUse() && wander(BrilliantBeetleEntity.this);
                 }
             });
-            this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, (float) 6));
-            this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+            this.goalSelector.addGoal(7, new RandomStrollGoal(this, 1) {
+                @Override
+                public boolean canUse() {
+                    return super.canUse() && wander(BrilliantBeetleEntity.this);
+                }
+            });
+            this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, (float) 6));
+            this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
 
         }
     }
@@ -284,8 +290,8 @@ public class BrilliantBeetleEntity extends TamableAnimal {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
-        //Tries to tame if the item is a Cocoa Beans.
-        if (itemstack.getItem() == Items.COCOA_BEANS) {
+        //Tries to tame if the item is a Cookie.
+        if (itemstack.getItem() == Items.COOKIE) {
             this.usePlayerItem(pPlayer, pHand, itemstack);
             if (!this.isTame()) {
                 this.tame(pPlayer);

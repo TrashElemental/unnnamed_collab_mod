@@ -35,6 +35,9 @@ public class ModEntities {
     public static final RegistryObject<EntityType<MantisEntity>> MANTIS =
             ENTITY_TYPES.register("mantis", () -> EntityType.Builder.of(MantisEntity::new, MobCategory.CREATURE)
                     .sized(1.5f, 1f).build("mantis"));
+    public static final RegistryObject<EntityType<OrchidMantisEntity>> ORCHID_MANTIS =
+            ENTITY_TYPES.register("orchid_mantis", () -> EntityType.Builder.of(OrchidMantisEntity::new, MobCategory.CREATURE)
+                    .sized(1.5f, 1f).build("orchid_mantis"));
 
 
     public static final RegistryObject<EntityType<HarvestBeetleEntity>> HARVEST_BEETLE =

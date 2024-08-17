@@ -16,6 +16,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.trashelemental.infested.effects.ModMobEffects;
 import net.trashelemental.infested.entity.custom.MantisEntity;
+import net.trashelemental.infested.entity.custom.OrchidMantisEntity;
 import net.trashelemental.infested.infested;
 
 import javax.annotation.Nullable;
@@ -33,9 +34,12 @@ public class MantisEvents {
     private static void execute(@Nullable Event event, Level world, Entity entity, Entity sourceEntity) {
 
         //When the mantis kills an arthropod, it is healed to max health.
-        if (entity instanceof LivingEntity killedEntity && sourceEntity instanceof MantisEntity mantis) {
-            if (killedEntity.getMobType() == MobType.ARTHROPOD) {
+        if (entity instanceof LivingEntity killedEntity &&
+                (sourceEntity instanceof MantisEntity || sourceEntity instanceof OrchidMantisEntity)) {
 
+            LivingEntity mantis = (LivingEntity) sourceEntity;
+
+            if (killedEntity.getMobType() == MobType.ARTHROPOD) {
                 mantis.setHealth(mantis.getMaxHealth());
 
                 ((ServerLevel) world).sendParticles(
@@ -63,12 +67,14 @@ public class MantisEvents {
     }
 
     private static void execute(@Nullable Event event, Entity sourceentity) {
-        if (sourceentity == null || !(sourceentity instanceof MantisEntity mantisEntity)) {
+        if (!(sourceentity instanceof MantisEntity || sourceentity instanceof OrchidMantisEntity)) {
             return;
         }
 
-        if (!mantisEntity.hasEffect(ModMobEffects.AMBUSH_COOLDOWN.get())) {
-            mantisEntity.addEffect(new MobEffectInstance(ModMobEffects.AMBUSH.get(), 300, 0, false, true));
+        LivingEntity mantis = (LivingEntity) sourceentity;
+
+        if (!mantis.hasEffect(ModMobEffects.AMBUSH_COOLDOWN.get())) {
+            mantis.addEffect(new MobEffectInstance(ModMobEffects.AMBUSH.get(), 300, 0, false, true));
         }
     }
 
