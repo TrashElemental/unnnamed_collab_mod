@@ -47,7 +47,7 @@ public class SpiderMinionRenderer extends MobRenderer<SpiderMinionEntity, Spider
 
     @Override
     public void render(SpiderMinionEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        float scale = 0.5f;
+        float scale = 0.3f;
         pPoseStack.pushPose();
         pPoseStack.scale(scale, scale, scale);
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);

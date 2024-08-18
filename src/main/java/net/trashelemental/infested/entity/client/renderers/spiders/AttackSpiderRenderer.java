@@ -50,7 +50,7 @@ public class AttackSpiderRenderer extends MobRenderer<AttackSpiderEntity, Spider
 
     @Override
     public void render(AttackSpiderEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
-        float scale = 0.5f;
+        float scale = 0.3f;
         pPoseStack.pushPose();
         pPoseStack.scale(scale, scale, scale);
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
