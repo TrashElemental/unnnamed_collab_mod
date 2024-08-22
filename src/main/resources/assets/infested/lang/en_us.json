@@ -1,4 +1,15 @@
 {
+  "advancements.spider_egg_get.title": "Best Friends Forever...?",
+  "advancements.spider_egg_get.description": "Acquire a Spider Egg.",
+  "advancements.silverfish_eggs_get.title": "Friends 'Till The End!",
+  "advancements.silverfish_eggs_get.description": "Acquire Silverfish Eggs.",
+  "advancements.insect_template_get.title": "Infested!",
+  "advancements.insect_template_get.description": "Acquire an Insect Template, used to make special armor.",
+  "advancements.spider_template_get.title": "Arachnophobia",
+  "advancements.spider_template_get.description": "Acquire a Spider Template, used to make special armor.",
+  "advancements.fried_grub_eat.title": "You WILL Eat The Bugs.",
+  "advancements.fried_grub_eat.description": "Consume a Fried Grub.",
+
   "item.infested.chitin": "Chitin",
   "item.infested.insect_template": "Insect Template",
   "item.infested.spider_template": "Spider Template",
