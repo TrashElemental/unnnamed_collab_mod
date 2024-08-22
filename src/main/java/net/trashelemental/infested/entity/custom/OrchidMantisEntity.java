@@ -198,7 +198,7 @@ public class OrchidMantisEntity extends TamableAnimal {
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.is(Items.SPIDER_EYE);
+        return pStack.is(Items.FERMENTED_SPIDER_EYE);
     }
 
     //Creature Type
@@ -251,7 +251,7 @@ public static boolean canSpawn(EntityType<OrchidMantisEntity> entityType, LevelA
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
         //Tries to tame if the item is a Spider Eye.
-        if (itemstack.getItem() == Items.FERMENTED_SPIDER_EYE) {
+        if (itemstack.getItem() == Items.SPIDER_EYE) {
             this.usePlayerItem(pPlayer, pHand, itemstack);
             if (!this.isTame()) {
                 if (this.random.nextInt(5) == 0) {

@@ -134,7 +134,12 @@ public class CrimsonBeetleEntity extends Animal {
 
     //Spawning
     public static boolean canSpawn(EntityType<CrimsonBeetleEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
-        return !level.getBlockState(position.below()).is(Blocks.NETHER_WART_BLOCK) && !level.getBlockState(position.below()).is(Blocks.SHROOMLIGHT);
+        return !level.getBlockState(position.below()).is(Blocks.NETHER_WART_BLOCK)
+                && !level.getBlockState(position.below()).is(Blocks.SHROOMLIGHT)
+                && !level.getBlockState(position.below()).is(Blocks.WEEPING_VINES)
+                && !level.getBlockState(position.below()).is(Blocks.WEEPING_VINES_PLANT)
+                && !level.getBlockState(position.below()).is(Blocks.GLOWSTONE)
+                && !level.getBlockState(position.below()).is(Blocks.CRIMSON_STEM);
     }
 
 

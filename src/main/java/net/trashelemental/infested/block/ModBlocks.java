@@ -8,8 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.trashelemental.infested.block.custom.ModFlammableRotatedPillarBlock;
-import net.trashelemental.infested.block.custom.SilverfishTrapBlock;
+import net.trashelemental.infested.block.custom.*;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.ModItems;
 
@@ -53,6 +52,15 @@ public class ModBlocks {
     // Functional Blocks
     public static final RegistryObject<Block> SILVERFISH_TRAP = registerblock("silverfish_trap",
             () -> new SilverfishTrapBlock(BlockBehaviour.Properties.copy(Blocks.PISTON)));
+
+    public static final RegistryObject<Block> SPIDER_TRAP = registerblock("spider_trap",
+            () -> new SpiderTrapBlock(BlockBehaviour.Properties.copy(Blocks.PISTON)));
+
+    public static final RegistryObject<Block> SPINNERET = registerblock("spinneret",
+            () -> new SpinneretBlock(BlockBehaviour.Properties.copy(Blocks.PISTON)));
+
+    public static final RegistryObject<Block> COBWEB_TRAP = registerblock("cobweb_trap",
+            () -> new CobwebTrapBlock(BlockBehaviour.Properties.copy(Blocks.COBWEB)));
 
 
 

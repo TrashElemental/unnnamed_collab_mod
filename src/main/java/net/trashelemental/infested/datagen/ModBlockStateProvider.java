@@ -32,6 +32,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.CHISELED_CHITIN_BRICKS);
 
         BlockWithItem(ModBlocks.SILVERFISH_TRAP);
+        BlockWithItem(ModBlocks.SPIDER_TRAP);
+
+        simpleBlock(ModBlocks.COBWEB_TRAP.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/cobweb_trap")));
     }
 
     private void blockItem (RegistryObject<Block> blockRegistryObject) {

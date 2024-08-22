@@ -222,6 +222,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.SILVERFISH_EGGS.get()), has(ModItems.SILVERFISH_EGGS.get()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.SPIDER_TRAP.get())
+                .pattern("aba")
+                .pattern("bab")
+                .pattern("bcb")
+                .define('a', ModItems.SPIDER_EGG.get())
+                .define('b', Items.COBBLESTONE)
+                .define('c', Items.REDSTONE)
+                .unlockedBy(getHasName(ModItems.SPIDER_EGG.get()), has(ModItems.SPIDER_EGG.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.SPINNERET.get())
+                .pattern("dbd")
+                .pattern("bab")
+                .pattern("bcb")
+                .define('a', ModItems.SPIDER_EGG.get())
+                .define('b', Items.COBBLESTONE)
+                .define('c', Items.REDSTONE)
+                .define('d', Items.STRING)
+                .unlockedBy(getHasName(ModItems.SPIDER_EGG.get()), has(ModItems.SPIDER_EGG.get()))
+                .save(pWriter);
+
 
 //Added Recipes for Vanilla Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COBWEB)

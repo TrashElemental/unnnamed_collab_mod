@@ -2,6 +2,8 @@
   "values": [
     "infested:chitin_block",
     "infested:chitin_bricks",
-    "infested:silverfish_trap"
+    "infested:silverfish_trap",
+    "infested:spider_trap",
+    "infested:spinneret"
   ]
 }

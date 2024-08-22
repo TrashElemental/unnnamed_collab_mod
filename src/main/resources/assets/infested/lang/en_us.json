@@ -28,6 +28,9 @@
   "block.infested.chiseled_chitin_bricks": "Chiseled Chitin Bricks",
 
   "block.infested.silverfish_trap": "Silverfish Trap",
+  "block.infested.spider_trap": "Spider Trap",
+  "block.infested.spinneret": "Spinneret",
+  "block.infested.cobweb_trap": "Cobweb Trap",
 
   "item.infested.grub_spawn_egg": "Grub Spawn Egg",
   "item.infested.crimson_beetle_spawn_egg": "Crimson Beetle Spawn Egg",
@@ -82,4 +85,5 @@
   "entity.infested.tamed_spider": "Spider",
   "entity.infested.spider_minion": "Spider",
   "entity.infested.attack_spider": "Spider"
+
 }

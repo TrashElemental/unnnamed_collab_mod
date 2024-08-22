@@ -30,7 +30,7 @@ public class SilverfishTrapBlock extends Block {
 
             if (world instanceof ServerLevel serverLevel) {
                 RandomSource random = serverLevel.random;
-                int count = Mth.nextInt(random, 5, 8); // Between 5 and 8
+                int count = Mth.nextInt(random, 5, 8);
 
                 for (int i = 0; i < count; i++) {
                     Entity entity = ModEntities.ATTACK_SILVERFISH.get().create(serverLevel);

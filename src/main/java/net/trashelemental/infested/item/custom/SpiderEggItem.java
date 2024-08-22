@@ -68,7 +68,7 @@ public class SpiderEggItem extends Item {
         level.gameEvent(player, GameEvent.ENTITY_PLACE, blockPos);
 
         level.playSound(null, blockPos,
-                SoundEvents.TURTLE_EGG_HATCH, SoundSource.PLAYERS, 1.0F, 1.0F);
+                SoundEvents.SNIFFER_EGG_HATCH, SoundSource.PLAYERS, 1.0F, 1.0F);
 
         ((ServerLevel) level).sendParticles(ParticleTypes.POOF,
                 spider.getX(), spider.getY(), spider.getZ(),

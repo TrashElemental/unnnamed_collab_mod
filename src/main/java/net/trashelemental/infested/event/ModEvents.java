@@ -36,6 +36,7 @@ import net.trashelemental.infested.effects.ModMobEffects;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.entity.custom.GrubEntity;
 import net.trashelemental.infested.entity.custom.silverfish.TamedSilverfishEntity;
+import net.trashelemental.infested.entity.custom.spiders.SpiderMinionEntity;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.ModItems;
 import net.trashelemental.infested.util.BlockEntityMapping;
@@ -198,10 +199,16 @@ public class ModEvents {
         }
 
 
-        //Tamed Silverfish won't send death messages (it gets spammy)
+        //Minions won't send death messages (it gets spammy)
         if (entity instanceof TamedSilverfishEntity silverfish) {
             if (silverfish.isTame()) {
                 silverfish.setOwnerUUID(null);
+            }
+        }
+
+        if (entity instanceof SpiderMinionEntity spider) {
+            if (spider.isTame()) {
+                spider.setOwnerUUID(null);
             }
         }
 

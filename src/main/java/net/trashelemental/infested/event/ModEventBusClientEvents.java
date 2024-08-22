@@ -4,6 +4,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.trashelemental.infested.armor.models.ChitinArmorModel;
 import net.trashelemental.infested.entity.client.*;
 import net.trashelemental.infested.entity.client.models.*;
 import net.trashelemental.infested.infested;
@@ -23,6 +24,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.JEWEL_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CHORUS_BEETLE_LAYER, JewelBeetleModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.ANCIENT_DEBREETLE_LAYER, JewelBeetleModel::createBodyLayer);
+
     }
 }
 

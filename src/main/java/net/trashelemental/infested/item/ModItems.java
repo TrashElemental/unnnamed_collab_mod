@@ -7,6 +7,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.trashelemental.infested.armor.custom.ChitinArmorItem;
+import net.trashelemental.infested.armor.custom.SpiderArmorItem;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.custom.BugStewItem;
@@ -48,22 +50,22 @@ public class ModItems {
 
     //Armor Items
     public static final RegistryObject<Item> CHITIN_HELMET = ITEMS.register("chitin_helmet",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.HELMET, new Item.Properties()));
+            ChitinArmorItem.Helmet::new);
     public static final RegistryObject<Item> CHITIN_CHESTPLATE = ITEMS.register("chitin_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            ChitinArmorItem.Chestplate::new);
     public static final RegistryObject<Item> CHITIN_LEGGINGS = ITEMS.register("chitin_leggings",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            ChitinArmorItem.Leggings::new);
     public static final RegistryObject<Item> CHITIN_BOOTS = ITEMS.register("chitin_boots",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.BOOTS, new Item.Properties()));
+            ChitinArmorItem.Boots::new);
 
     public static final RegistryObject<Item> SPIDER_HELMET = ITEMS.register("spider_helmet",
-            () -> new ArmorItem(ModArmorMaterials.SPIDER, ArmorItem.Type.HELMET, new Item.Properties()));
+            SpiderArmorItem.Helmet::new);
     public static final RegistryObject<Item> SPIDER_CHESTPLATE = ITEMS.register("spider_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.SPIDER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            SpiderArmorItem.Chestplate::new);
     public static final RegistryObject<Item> SPIDER_LEGGINGS = ITEMS.register("spider_leggings",
-            () -> new ArmorItem(ModArmorMaterials.SPIDER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            SpiderArmorItem.Leggings::new);
     public static final RegistryObject<Item> SPIDER_BOOTS = ITEMS.register("spider_boots",
-            () -> new ArmorItem(ModArmorMaterials.SPIDER, ArmorItem.Type.BOOTS, new Item.Properties()));
+            SpiderArmorItem.Boots::new);
 
     //Spawn Eggs
     public static final RegistryObject<Item> CRIMSON_BEETLE_SPAWN_EGG = ITEMS.register("crimson_beetle_spawn_egg",

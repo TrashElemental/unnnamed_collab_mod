@@ -195,7 +195,7 @@ public class BrilliantBeetleEntity extends TamableAnimal {
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.is(Items.COCOA_BEANS);
+        return pStack.is(Items.COOKIE);
     }
 
     //Creature Type
@@ -290,8 +290,8 @@ public class BrilliantBeetleEntity extends TamableAnimal {
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
-        //Tries to tame if the item is a Cookie.
-        if (itemstack.getItem() == Items.COOKIE) {
+        //Tries to tame if the item is a Cocoa Beans.
+        if (itemstack.getItem() == Items.COCOA_BEANS) {
             this.usePlayerItem(pPlayer, pHand, itemstack);
             if (!this.isTame()) {
                 this.tame(pPlayer);

@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,6 +14,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.trashelemental.infested.block.ModBlocks;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.ModItems;
+
+import java.util.Objects;
+
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -47,6 +51,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.CHITIN_BRICK_SLAB);
         evenSimplerBlockItem(ModBlocks.CHITIN_STAIRS);
         evenSimplerBlockItem(ModBlocks.CHITIN_BRICK_STAIRS);
+
+        withExistingParent(ModBlocks.COBWEB_TRAP.getId().getPath(),
+                modLoc("item/cobweb_trap_item"));
 
         withExistingParent(ModItems.CRIMSON_BEETLE_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.GRUB_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));

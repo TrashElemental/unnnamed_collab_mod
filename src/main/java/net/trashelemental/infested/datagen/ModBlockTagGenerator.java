@@ -32,7 +32,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.CHITIN_BLOCK.get())
                 .add(ModBlocks.CHITIN_BRICKS.get())
-                .add(ModBlocks.SILVERFISH_TRAP.get());
+                .add(ModBlocks.SILVERFISH_TRAP.get())
+                .add(ModBlocks.SPIDER_TRAP.get())
+                .add(ModBlocks.SPINNERET.get());
 
         this.tag(BlockTags.WALLS)
                 .add(ModBlocks.CHITIN_WALL.get())

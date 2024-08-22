@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-16T14:36:21.0799482	Item Models: infested
+// 1.20.1	2024-08-20T23:03:52.6408209	Item Models: infested
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/ancient_debreetle_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/brilliant_beetle_spawn_egg.json
 548e14875462cd67b9b39fbe8880aed5a83264b6 assets/infested/models/item/bug_stew.json
@@ -14,6 +14,7 @@ e6aa1ca3904f3e542760016995d4736eb6639c3c assets/infested/models/item/chitin_slab
 cdce31795d957a152de0adf15b134495983c76e6 assets/infested/models/item/chitin_stairs.json
 2ef82826e5bdb381fc210931abedc224ed1d46e7 assets/infested/models/item/chitin_wall.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/chorus_beetle_spawn_egg.json
+24e304ae3139a9890f4cae608937a00d10fd5cf5 assets/infested/models/item/cobweb_trap.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/crimson_beetle_spawn_egg.json
 5e9fbf6d206d480cda93af303232af7528821016 assets/infested/models/item/fried_grub.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/infested/models/item/grub_spawn_egg.json

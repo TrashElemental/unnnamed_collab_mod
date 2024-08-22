@@ -1,4 +1,4 @@
-package net.trashelemental.infested.event.custom;
+package net.trashelemental.infested.entity.ai;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;

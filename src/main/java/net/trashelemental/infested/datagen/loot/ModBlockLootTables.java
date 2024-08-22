@@ -5,6 +5,7 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
 import net.trashelemental.infested.block.ModBlocks;
 
@@ -30,6 +31,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CHISELED_CHITIN_BRICKS.get());
 
         this.dropSelf(ModBlocks.SILVERFISH_TRAP.get());
+        this.dropSelf(ModBlocks.SPIDER_TRAP.get());
+        this.dropSelf(ModBlocks.SPINNERET.get());
+        this.add(ModBlocks.COBWEB_TRAP.get(),
+                block -> LootTable.lootTable());
     }
 
     @Override

@@ -39,6 +39,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SPIDER_BOOTS.get());
 
                         output.accept(ModBlocks.SILVERFISH_TRAP.get());
+                        output.accept(ModBlocks.SPIDER_TRAP.get());
+                        output.accept(ModBlocks.SPINNERET.get());
+                        output.accept(ModBlocks.COBWEB_TRAP.get());
 
                         output.accept(ModBlocks.CHITIN_BLOCK.get());
                         output.accept(ModBlocks.CHITIN_SLAB.get());

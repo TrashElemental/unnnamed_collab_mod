@@ -229,7 +229,7 @@ public class SpiderMinionEntity extends TamableAnimal {
     public void tick() {
         super.tick();
 
-        if (!this.isBaby()) {
+        if (this.getAge() == 0) {
             if (this.level() instanceof ServerLevel serverLevel) {
                 serverLevel.sendParticles(ParticleTypes.POOF, this.getX(), this.getY(), this.getZ(), 5, 0, 0, 0, 0);
             }

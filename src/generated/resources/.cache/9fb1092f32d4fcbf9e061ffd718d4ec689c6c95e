@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-19T16:01:03.2256964	Recipes
+// 1.20.1	2024-08-20T22:24:36.8078291	Recipes
 3fcfa3d5330f01c39c399599d67a29cce91ed616 data/infested/advancements/recipes/building_blocks/chitin_block.json
 70303a0eb13ed774d6b682f571e45cc28447a534 data/infested/advancements/recipes/building_blocks/chitin_bricks.json
 c7608582eec930537cceb01a3289424e0a6f1e26 data/infested/advancements/recipes/food/bug_stew_from_silverfish_eggs.json
@@ -19,6 +19,8 @@ ce83ee28d4c3392fda3d13223a6990741850824f data/infested/advancements/recipes/misc
 f333284cdfd2a3df55555f967359d48262a271a6 data/infested/advancements/recipes/misc/spider_leggings_smithing.json
 9f586aa78668b17011d50143e9c8bd44304b6ada data/infested/advancements/recipes/misc/spider_template.json
 7c719034f348840a6ec055e96139b9d818ebc636 data/infested/advancements/recipes/redstone/silverfish_trap.json
+644c1cf99377414026819ed3ed023260ce11becf data/infested/advancements/recipes/redstone/spider_trap.json
+c65a0de5ec511a59592dc4f6680b05e5f55c58f3 data/infested/advancements/recipes/redstone/spinneret.json
 9e08e08677b5d1868797e9c6d337b7153fb6f1b7 data/infested/recipes/bug_stew_from_silverfish_eggs.json
 87d9d4538c804365caddbbedfba3117250910de1 data/infested/recipes/bug_stew_from_spider_egg.json
 951083aad8e971f521bcd60c5e0b1917482fd5d3 data/infested/recipes/chitin_block.json
@@ -39,6 +41,8 @@ d323338619cf21c8dc32288731409e96bc880360 data/infested/recipes/spider_chestplate
 4899a295105d81425e6ffd5c556005e0c1640536 data/infested/recipes/spider_helmet_smithing.json
 bb35e0d3047e88f65ba87324aaefd6b04ecd3ee3 data/infested/recipes/spider_leggings_smithing.json
 fc5b7f679657982b3c3fcdcc4c0b442f65587806 data/infested/recipes/spider_template.json
+210ba230cd7c36578438412d3f9ac31ef798a34b data/infested/recipes/spider_trap.json
+669cf5fdaa260ce5756993ae949927e18bc96e82 data/infested/recipes/spinneret.json
 8ba403465f98cd0fbb61c7c5f320ea104ff0c82e data/minecraft/advancements/recipes/misc/cobweb.json
 f2b66adfd30e274481ddb91ca677a40d6e575412 data/minecraft/advancements/recipes/misc/infested_chiseled_stone_bricks.json
 c308870f27df97c4dc386897d411ba1644d46713 data/minecraft/advancements/recipes/misc/infested_cobblestone.json
