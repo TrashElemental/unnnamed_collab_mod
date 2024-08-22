@@ -18,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.trashelemental.infested.entity.custom.spiders.AttackSpiderEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -35,6 +36,7 @@ public class AttackSilverfishEntity extends Animal {
         super.registerGoals();
         this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Monster.class, false, false));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, false, false));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, AttackSpiderEntity.class, false, false));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false) {
             @Override
             protected double getAttackReachSqr(LivingEntity entity) {

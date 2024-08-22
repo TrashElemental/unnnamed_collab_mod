@@ -10,6 +10,16 @@
   "advancements.fried_grub_eat.title": "You WILL Eat The Bugs.",
   "advancements.fried_grub_eat.description": "Consume a Fried Grub.",
 
+  "jei.infested.spider_egg_info": "Use to hatch a friendly cave spider that will be tamed by you. The spider will inflict potion effects when it attacks, which you can change by feeding it a few different ingredients. By default, the effect is Poison. You can customize the spider's eye color using dyes.",
+  "jei.infested.silverfish_eggs_info": "Use to hatch a few Silverfish Minions that will support you for a few seconds, before leaving to join a wild colony. Minion-type mobs are immune to damage from their owners.",
+  "jei.infested.raw_grub_info": "Cook this item into a delicious meal or two, or feed it raw to an Arthropod that is tamed by you to restore a good amount of its health.",
+  "jei.infested.cobweb_trap_info": "Obtainable by right clicking on the ground while wearing the full Spider Armor set. Acts as a cobweb block that will disappear after ten seconds. Spiders and players wearing the Spider Boots are immune to its effects.",
+  "jei.infested.spinneret_info": "When activated via redstone, this block will spread Cobweb Traps in a 5x5 square centered on itself, both on its level, and one block above. Only activates once per redstone signal.",
+  "jei.infested.spider_trap_info": "When activated via redstone, this block will crumble and release a few Attack Spiders, that are hostile to anything they see as a threat, including you! Attack Spiders inflict poison with their attacks, and leave behind a Cobweb Trap on death. They despawn after fifteen seconds.",
+  "jei.infested.silverfish_trap_info": "When activated via redstone, this block will crumble and release a swarm of Attack Silverfish, that are hostile to anything they see as a threat, including you! The silverfish despawn after fifteen seconds.",
+  "jei.infested.spider_armor_info": "The hood of this armor grants you night vision. Wearing the full set will cause you to deal bonus damage against enemies trapped in cobwebs, and if you kill an enemy in cobwebs, you'll spawn a Spider Minion that lasts for thirty seconds. This minion will leave behind a cobweb trap upon its death. Additionally, you can crouch and click on a block to sacrifice some of your armor's durability to obtain temporary cobweb traps, which slow down non-spider enemies. You are immune to cobweb traps while wearing the Spider Boots.",
+  "jei.infested.chitin_armor_info": "This armor has some bonus toughness and knockback resistance. Wearing the Chestplate will give you a free level of the Infested and Parasitoid enchantments. Wearing the full set will allow you to crouch to enter an Ambush state, turning you invisible and slowing you down for fifteen seconds, or until you hit an enemy. Hitting an enemy while in an Ambush deals bonus damage, and stuns the entity for a short time.",
+
   "item.infested.chitin": "Chitin",
   "item.infested.insect_template": "Insect Template",
   "item.infested.spider_template": "Spider Template",

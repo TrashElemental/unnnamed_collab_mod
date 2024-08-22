@@ -202,11 +202,67 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_SLAB.get())
+                .pattern("   ")
+                .pattern("aaa")
+                .pattern("   ")
+                .define('a', ModBlocks.CHITIN_BLOCK.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_STAIRS.get())
+                .pattern("a  ")
+                .pattern("aa ")
+                .pattern("aaa")
+                .define('a', ModBlocks.CHITIN_BLOCK.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_WALL.get())
+                .pattern("   ")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', ModBlocks.CHITIN_BLOCK.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_BRICKS.get())
                 .pattern("aaa")
                 .pattern("aaa")
                 .pattern("aaa")
                 .define('a', ModItems.CHITIN.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_BRICK_SLAB.get())
+                .pattern("   ")
+                .pattern("aaa")
+                .pattern("   ")
+                .define('a', ModBlocks.CHITIN_BRICKS.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_BRICK_STAIRS.get())
+                .pattern("a  ")
+                .pattern("aa ")
+                .pattern("aaa")
+                .define('a', ModBlocks.CHITIN_BRICKS.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHITIN_BRICK_WALL.get())
+                .pattern("   ")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', ModBlocks.CHITIN_BRICKS.get())
+                .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_CHITIN_BRICKS.get())
+                .pattern("   ")
+                .pattern(" a ")
+                .pattern(" a ")
+                .define('a', ModBlocks.CHITIN_BRICK_SLAB.get())
                 .unlockedBy(getHasName(ModItems.CHITIN.get()), has(ModItems.CHITIN.get()))
                 .save(pWriter);
 

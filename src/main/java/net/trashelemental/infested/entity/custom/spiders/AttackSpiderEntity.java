@@ -31,6 +31,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.trashelemental.infested.entity.custom.silverfish.AttackSilverfishEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -48,6 +49,7 @@ public class AttackSpiderEntity extends Animal {
         super.registerGoals();
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Monster.class, false, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false, false));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AttackSilverfishEntity.class, false, false));
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, false) {
             @Override
             protected double getAttackReachSqr(LivingEntity entity) {
