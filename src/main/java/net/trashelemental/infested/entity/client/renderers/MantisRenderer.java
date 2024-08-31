@@ -5,14 +5,14 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.trashelemental.infested.entity.client.ModModelLayers;
+import net.trashelemental.infested.entity.ModEventBusEvents;
 import net.trashelemental.infested.entity.client.models.MantisModel;
 import net.trashelemental.infested.entity.custom.MantisEntity;
 import net.trashelemental.infested.infested;
 
 public class MantisRenderer extends MobRenderer<MantisEntity, MantisModel<MantisEntity>> {
     public MantisRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MantisModel<>(pContext.bakeLayer(ModModelLayers.MANTIS_LAYER)), 0.5f);
+        super(pContext, new MantisModel<>(pContext.bakeLayer(ModEventBusEvents.MANTIS_LAYER)), 0.5f);
     }
 
     @Override

@@ -7,9 +7,12 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.trashelemental.infested.datagen.loot.ModLootTableProvider;
+import net.trashelemental.infested.datagen.tags.ModBlockTagGenerator;
+import net.trashelemental.infested.datagen.tags.ModEntityTagGenerator;
+import net.trashelemental.infested.datagen.tags.ModItemTagGenerator;
 import net.trashelemental.infested.infested;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = infested.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

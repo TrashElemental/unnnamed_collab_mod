@@ -11,8 +11,8 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import net.trashelemental.infested.entity.ModEventBusEvents;
 import net.trashelemental.infested.entity.client.models.BrilliantBeetleModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
 import net.trashelemental.infested.entity.custom.BrilliantBeetleEntity;
 import net.trashelemental.infested.infested;
 
@@ -22,7 +22,7 @@ public class BrilliantBeetleRenderer extends MobRenderer<BrilliantBeetleEntity, 
     private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/brilliant_beetle_glow.png");
 
     public BrilliantBeetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new BrilliantBeetleModel<>(pContext.bakeLayer(ModModelLayers.BRILLIANT_BEETLE_LAYER)), 0.3f);
+        super(pContext, new BrilliantBeetleModel<>(pContext.bakeLayer(ModEventBusEvents.BRILLIANT_BEETLE_LAYER)), 0.3f);
         this.addLayer(new EmissiveLayer<>(this));
     }
 

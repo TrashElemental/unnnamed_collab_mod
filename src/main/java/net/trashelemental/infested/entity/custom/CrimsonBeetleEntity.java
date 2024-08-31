@@ -139,6 +139,7 @@ public class CrimsonBeetleEntity extends Animal {
                 && !level.getBlockState(position.below()).is(Blocks.WEEPING_VINES)
                 && !level.getBlockState(position.below()).is(Blocks.WEEPING_VINES_PLANT)
                 && !level.getBlockState(position.below()).is(Blocks.GLOWSTONE)
+                && !level.getBlockState(position.below()).is(Blocks.AIR)
                 && !level.getBlockState(position.below()).is(Blocks.CRIMSON_STEM);
     }
 

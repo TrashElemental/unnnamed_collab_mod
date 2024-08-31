@@ -11,8 +11,8 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import net.trashelemental.infested.entity.ModEventBusEvents;
 import net.trashelemental.infested.entity.client.models.JewelBeetleModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
 import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
 import net.trashelemental.infested.infested;
 
@@ -22,7 +22,7 @@ public class JewelBeetleRenderer extends MobRenderer<JewelBeetleEntity, JewelBee
     private static final ResourceLocation EMISSIVE_TEXTURE = new ResourceLocation(infested.MOD_ID, "textures/entity/jewel_beetle_glow.png");
 
     public JewelBeetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModModelLayers.JEWEL_BEETLE_LAYER)), 0.3f);
+        super(pContext, new JewelBeetleModel<>(pContext.bakeLayer(ModEventBusEvents.JEWEL_BEETLE_LAYER)), 0.3f);
         this.addLayer(new EmissiveLayer<>(this));
     }
 

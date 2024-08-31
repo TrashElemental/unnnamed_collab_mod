@@ -5,14 +5,14 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.trashelemental.infested.entity.ModEventBusEvents;
 import net.trashelemental.infested.entity.client.models.GrubModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
 import net.trashelemental.infested.entity.custom.GrubEntity;
 import net.trashelemental.infested.infested;
 
 public class GrubRenderer extends MobRenderer<GrubEntity, GrubModel<GrubEntity>> {
     public GrubRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new GrubModel<>(pContext.bakeLayer(ModModelLayers.GRUB_LAYER)), 0.3f);
+        super(pContext, new GrubModel<>(pContext.bakeLayer(ModEventBusEvents.GRUB_LAYER)), 0.3f);
     }
 
     @Override

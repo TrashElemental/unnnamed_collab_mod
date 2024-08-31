@@ -2,24 +2,19 @@ package net.trashelemental.infested.entity.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
@@ -29,12 +24,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.trashelemental.infested.effects.ModMobEffects;
 import net.trashelemental.infested.entity.ModEntities;
 import org.jetbrains.annotations.Nullable;
 
@@ -155,6 +147,8 @@ public class GrubEntity extends Animal {
                 && !blockBelow.is(Blocks.SHROOMLIGHT)
                 && !blockBelow.is(Blocks.LAVA)
                 && !blockBelow.is(Blocks.MAGMA_BLOCK)
+                && !blockBelow.is(Blocks.GLOWSTONE)
+                && !blockBelow.is(Blocks.AIR)
                 && !level.getBlockState(position.below()).getFluidState().is(FluidTags.LAVA)
                 && !level.getBlockState(position.below()).is(Blocks.FIRE);
     }

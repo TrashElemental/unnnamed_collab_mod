@@ -1,14 +1,13 @@
 package net.trashelemental.infested.item;
 
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.trashelemental.infested.armor.custom.ChitinArmorItem;
-import net.trashelemental.infested.armor.custom.SpiderArmorItem;
+import net.trashelemental.infested.item.armor.custom.ChitinArmorItem;
+import net.trashelemental.infested.item.armor.custom.SpiderArmorItem;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.infested;
 import net.trashelemental.infested.item.custom.BugStewItem;

@@ -14,9 +14,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.trashelemental.infested.block.ModBlocks;
-import net.trashelemental.infested.brewing.ModPotions;
-import net.trashelemental.infested.effects.ModMobEffects;
-import net.trashelemental.infested.enchantments.ModEnchantments;
+import net.trashelemental.infested.magic.brewing.ModPotions;
+import net.trashelemental.infested.magic.effects.ModMobEffects;
+import net.trashelemental.infested.magic.enchantments.ModEnchantments;
 import net.trashelemental.infested.entity.ModEntities;
 import net.trashelemental.infested.entity.client.renderers.*;
 import net.trashelemental.infested.entity.client.renderers.jewelbeetles.AncientDebreetleRenderer;
@@ -30,7 +30,7 @@ import net.trashelemental.infested.entity.client.renderers.spiders.SpiderMinionR
 import net.trashelemental.infested.entity.client.renderers.spiders.TamedSpiderRenderer;
 import net.trashelemental.infested.item.ModCreativeModeTabs;
 import net.trashelemental.infested.item.ModItems;
-import net.trashelemental.infested.loot.ModLootModifiers;
+import net.trashelemental.infested.util.loot.ModLootModifiers;
 import org.slf4j.Logger;
 
 import java.util.AbstractMap;

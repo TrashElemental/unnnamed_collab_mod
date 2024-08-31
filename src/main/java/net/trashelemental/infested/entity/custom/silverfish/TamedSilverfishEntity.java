@@ -14,9 +14,11 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.trashelemental.infested.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -95,7 +97,6 @@ public class TamedSilverfishEntity extends TamableAnimal {
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
         return null;
     }
-
 
     //Taming
     private boolean isTame;

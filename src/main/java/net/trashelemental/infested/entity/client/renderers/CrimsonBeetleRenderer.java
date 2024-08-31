@@ -5,14 +5,14 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.trashelemental.infested.entity.ModEventBusEvents;
 import net.trashelemental.infested.entity.client.models.CrimsonBeetleModel;
-import net.trashelemental.infested.entity.client.ModModelLayers;
 import net.trashelemental.infested.entity.custom.CrimsonBeetleEntity;
 import net.trashelemental.infested.infested;
 
 public class CrimsonBeetleRenderer extends MobRenderer<CrimsonBeetleEntity, CrimsonBeetleModel<CrimsonBeetleEntity>> {
     public CrimsonBeetleRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new CrimsonBeetleModel<>(pContext.bakeLayer(ModModelLayers.CRIMSON_BEETLE_LAYER)), 0.5f);
+        super(pContext, new CrimsonBeetleModel<>(pContext.bakeLayer(ModEventBusEvents.CRIMSON_BEETLE_LAYER)), 0.5f);
     }
 
     @Override

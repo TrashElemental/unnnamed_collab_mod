@@ -125,6 +125,8 @@ public class SpiderMinionEntity extends TamableAnimal {
     }
 
 
+
+
     //Custom Behaviors
 
     //Spider Climbing Behavior (Also some in defineSyncedData and tick.)
