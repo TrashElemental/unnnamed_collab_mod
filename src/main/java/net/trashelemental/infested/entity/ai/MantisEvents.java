@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom.ai;
+package net.trashelemental.infested.entity.ai;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;

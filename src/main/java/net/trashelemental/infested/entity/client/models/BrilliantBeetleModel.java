@@ -17,7 +17,6 @@ import static net.trashelemental.infested.entity.custom.BrilliantBeetleEntity.AN
 
 public class BrilliantBeetleModel<T extends Entity> extends HierarchicalModel<T> {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "brilliantbeetle"), "main");
 	private final ModelPart brilliant_beetle;
 	private final ModelPart Head;
 

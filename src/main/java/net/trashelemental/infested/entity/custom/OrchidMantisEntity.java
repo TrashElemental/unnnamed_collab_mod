@@ -32,7 +32,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.trashelemental.infested.entity.ModEntities;
-import net.trashelemental.infested.entity.custom.ai.MantisAttackGoal;
+import net.trashelemental.infested.entity.ai.MantisAttackGoal;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;

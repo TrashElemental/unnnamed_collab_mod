@@ -17,7 +17,6 @@ import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
 
 public class JewelBeetleModel<T extends Entity> extends HierarchicalModel<T> {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "jewelbeetle"), "main");
 	private final ModelPart jewel_beetle;
 
 

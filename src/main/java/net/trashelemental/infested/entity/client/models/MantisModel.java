@@ -18,7 +18,6 @@ import net.trashelemental.infested.entity.custom.jewelbeetles.JewelBeetleEntity;
 
 public class MantisModel<T extends Entity> extends HierarchicalModel<T> {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "mantis2"), "main");
 	private final ModelPart mantis;
 	private final ModelPart Head;
 

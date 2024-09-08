@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom.ai;
+package net.trashelemental.infested.entity.ai;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,9 +32,7 @@ public class CobwebPlaceOnDeathEvent {
 
         BlockState cobwebTrapState = ModBlocks.COBWEB_TRAP.get().defaultBlockState();
 
-        BlockState belowState = level.getBlockState(pos.below());
-
-        if (belowState.isSolid() && belowState.getShape(level, pos.below()).equals(Shapes.block())) {
+        if (cobwebTrapState.canSurvive(level, pos)) {
             level.setBlock(pos, cobwebTrapState, 3);
         }
     }

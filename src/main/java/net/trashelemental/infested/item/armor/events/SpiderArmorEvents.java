@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -79,10 +80,11 @@ public class SpiderArmorEvents {
 
 
         //When the player kills an entity that is standing inside Cobweb or Cobweb Trap, a Spider Minion will be spawned.
+        //Works if the target has Slowness as well
         if (entity instanceof LivingEntity target && sourceEntity instanceof Player player) {
             if (isWearingFullSpiderSet(player)) {
                 BlockPos pos = target.blockPosition();
-                if (isInCobwebOrTrap(world, pos)) {
+                if (isInCobwebOrTrap(world, pos) || target.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
                     infested.queueServerWork(20, () -> {
 
                         if (world instanceof ServerLevel serverLevel) {
@@ -127,8 +129,8 @@ public class SpiderArmorEvents {
 
     private static void placeCobwebTrap(Level level, BlockPos pos) {
         BlockState cobwebTrapState = ModBlocks.COBWEB_TRAP.get().defaultBlockState();
-        BlockState belowState = level.getBlockState(pos.below());
-        if (belowState.isSolid() && belowState.getShape(level, pos.below()).equals(Shapes.block())) {
+
+        if (cobwebTrapState.canSurvive(level, pos)) {
             level.setBlock(pos, cobwebTrapState, 3);
         }
     }

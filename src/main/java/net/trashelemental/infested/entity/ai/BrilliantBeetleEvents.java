@@ -1,4 +1,4 @@
-package net.trashelemental.infested.entity.custom.ai;
+package net.trashelemental.infested.entity.ai;
 
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
