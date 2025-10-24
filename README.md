@@ -1,0 +1,31 @@
+--- Honeyman Breakdown 
+
+Honeyman has three combat modes: melee, ranged, and berserk. When it first spawns, it will be in Melee mode. When it takes damage, it will sometimes teleport away, leaving a few minions behind to distract the attacker and giving them blindness for three seconds. If the Honeyman detects that it's 7 blocks or more away from its target, it will switch to Ranged mode.
+
+* Melee mode: Chases down its target and hits them.
+* Ranged mode: Strafes around the target and periodically summons minions, launching them towards the target. If too many minions are present, it will switch to firing volleys of low-damage projectiles that inflict poison on a hit.
+
+Once the Honeyman reaches half health, and again at one quarter health, it will teleport away, and do a scripted summon. During this special summon, it takes minimal damage, and summons between 6 and 9 minions, before entering Berserk mode.
+
+* Berserk mode: Chases down its target with increased speed. Can teleport away more frequently, but does not enter ranged mode when it does so.
+
+
+--- Minions
+The Honeyman can summon two types of minions, both of which have very low HP, but can quickly pile up and become overwhelming.
+
+* Bee Minion - Flies at the target and inflicts poison with its attacks.
+* Larva Minion - Crawls at the target and does not inflict any effect.
+
+
+--- Boss Immunities
+The Honeyman is immune to the Poison effect. Whenever it enters Berserk mode, it will remove any potion effects it has, and become immune to all potion effects until its Berserk phase ends.
+
+--- Boss Weaknesses
+The Honeyman takes 1.5x from fire damage types and takes +2 damage from each level of smite on a weapon. It also takes double damage from all sources while its chest is exposed during its summon attack (excluding when it is doing its Berserk phase transition).
+
+
+--- Easy Mode Changes 
+While easy mode is enabled, the Honeyman will summon fewer minions with most of its minion-summoning abilities, and its minions cannot inflict any special effects with their attacks. It will also stay in Berserk mode for less time during a phase transition, and it can teleport less frequently.
+
+--- Hard Mode Changes
+While hard mode is enabled, the Honeyman will summon more minions with most of its minion summoning abilities, and its Larva minions will inflict Hunger on attacks. It will stay in Berserk mode for longer, and it can also teleport more frequently.
