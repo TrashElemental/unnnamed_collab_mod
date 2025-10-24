@@ -1,5 +1,14 @@
 {
 
+  "advancements.mod_name.say_honeyman.title": "Don't say it, don't think it!",
+  "advancements.mod_name.say_honeyman.description": "Don't say his name again!",
+  "advancements.mod_name.summon_honeyman.title": "The Honeyman Cometh!",
+  "advancements.mod_name.summon_honeyman.description": "Summon the Honeyman.",
+  "advancements.mod_name.kill_honeyman.title": "The Honeyman Goeth!",
+  "advancements.mod_name.kill_honeyman.description": "Slay the Honeyman.",
 
-
+  "entity.collab_mod.honeyman": "Honeyman",
+  "entity.collab_mod.honeyman_minion_bee": "Honeyman Minion",
+  "entity.collab_mod.honeyman_minion_larva": "Honeyman Minion",
+  "entity.collab_mod.honeyman_projectile_entity": "Honeyman Projectile"
 }

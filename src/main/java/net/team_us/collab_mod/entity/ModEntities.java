@@ -7,21 +7,32 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.team_us.collab_mod.CollabMod;
-import net.team_us.collab_mod.entity.custom.bosses.TestBossNoBar;
-import net.team_us.collab_mod.entity.custom.bosses.TestBossWithBar;
+import net.team_us.collab_mod.entity.custom.bosses.HoneymanEntity;
+import net.team_us.collab_mod.entity.custom.minions.BeeMinionEntity;
+import net.team_us.collab_mod.entity.custom.minions.LarvaMinionEntity;
+import net.team_us.collab_mod.entity.custom.projectiles.HoneymanProjectileEntity;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, CollabMod.MOD_ID);
 
+    public static final RegistryObject<EntityType<HoneymanEntity>> HONEYMAN =
+            ENTITY_TYPES.register("honeyman", () -> EntityType.Builder.of(HoneymanEntity::new, MobCategory.MONSTER)
+                    .sized(1.4f, 3.3f).build("honeyman"));
+    public static final RegistryObject<EntityType<BeeMinionEntity>> HONEYMAN_BEE_MINION =
+            ENTITY_TYPES.register("honeyman_minion_bee", () -> EntityType.Builder.of(BeeMinionEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("honeyman_minion_bee"));
+    public static final RegistryObject<EntityType<LarvaMinionEntity>> HONEYMAN_LARVA_MINION =
+            ENTITY_TYPES.register("honeyman_minion_larva", () -> EntityType.Builder.of(LarvaMinionEntity::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("honeyman_minion_larva"));
 
-    public static final RegistryObject<EntityType<TestBossWithBar>> TEST_BOSS_BAR =
-            ENTITY_TYPES.register("test_boss_with_bar", () -> EntityType.Builder.of(TestBossWithBar::new, MobCategory.MONSTER)
-                    .sized(1f, 2.5f).build("test_boss_with_bar"));
 
-    public static final RegistryObject<EntityType<TestBossNoBar>> TEST_BOSS_NO_BAR =
-            ENTITY_TYPES.register("test_boss_no_bar", () -> EntityType.Builder.of(TestBossNoBar::new, MobCategory.MONSTER)
-                    .sized(1f, 2.5f).build("test_boss_no_bar"));
+
+    //Projectile
+    public static final RegistryObject<EntityType<HoneymanProjectileEntity>> HONEYMAN_PROJECTILE_ENTITY =
+            ENTITY_TYPES.register("honeyman_projectile_entity",
+                    () -> EntityType.Builder.<HoneymanProjectileEntity>of(HoneymanProjectileEntity::new, MobCategory.MISC)
+                            .sized(0.3f, 0.3f).build("honeyman_projectile_entity"));
 
 
 

@@ -3,12 +3,15 @@ package net.team_us.collab_mod.junkyard_lib.util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.team_us.collab_mod.CollabMod;
 
 import java.util.UUID;
 
@@ -43,4 +46,25 @@ public class UtilMethods {
             instance.removeModifier(uuid);
         }
     }
+
+    /**
+     * Easy advancement granter, just pass in the player to get the advancement and the string name of the advancement.
+     */
+    public static void grantAdvancement(ServerPlayer player, String advancementPath) {
+        grantAdvancement(player, new ResourceLocation(CollabMod.MOD_ID, advancementPath));
+    }
+
+    public static void grantAdvancement(ServerPlayer player, ResourceLocation advancementId) {
+        var advancement = player.server.getAdvancements().getAdvancement(advancementId);
+        if (advancement != null) {
+            var progress = player.getAdvancements().getOrStartProgress(advancement);
+            if (!progress.isDone()) {
+                for (String criterion : progress.getRemainingCriteria()) {
+                    player.getAdvancements().award(advancement, criterion);
+                }
+            }
+        }
+    }
+
+
 }

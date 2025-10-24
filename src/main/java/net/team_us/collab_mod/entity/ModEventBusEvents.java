@@ -6,8 +6,9 @@ import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.team_us.collab_mod.CollabMod;
-import net.team_us.collab_mod.entity.custom.bosses.TestBossNoBar;
-import net.team_us.collab_mod.entity.custom.bosses.TestBossWithBar;
+import net.team_us.collab_mod.entity.custom.bosses.HoneymanEntity;
+import net.team_us.collab_mod.entity.custom.minions.BeeMinionEntity;
+import net.team_us.collab_mod.entity.custom.minions.LarvaMinionEntity;
 
 @Mod.EventBusSubscriber(modid = CollabMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
@@ -15,8 +16,9 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
 
-        event.put(ModEntities.TEST_BOSS_BAR.get(), TestBossWithBar.createAttributes().build());
-        event.put(ModEntities.TEST_BOSS_NO_BAR.get(), TestBossNoBar.createAttributes().build());
+        event.put(ModEntities.HONEYMAN.get(), HoneymanEntity.createAttributes().build());
+        event.put(ModEntities.HONEYMAN_BEE_MINION.get(), BeeMinionEntity.createAttributes().build());
+        event.put(ModEntities.HONEYMAN_LARVA_MINION.get(), LarvaMinionEntity.createAttributes().build());
 
     }
 

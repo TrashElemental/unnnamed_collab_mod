@@ -1,4 +1,4 @@
-package net.team_us.collab_mod.entity.custom;
+package net.team_us.collab_mod.entity.custom.bosses;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -9,6 +9,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -116,6 +118,22 @@ public class BossEntity extends PathfinderMob {
             }
         }
 
+        if (hyperArmor) {
+            if (hyperArmorTicks > 0) {
+                hyperArmorTicks--;
+            } else {
+                clearHyperArmor();
+            }
+        }
+
+        if (vulnerable) {
+            if (vulnerableTicks > 0) {
+                vulnerableTicks--;
+            } else {
+                clearVulnerable();
+            }
+        }
+
     }
 
 
@@ -192,11 +210,95 @@ public class BossEntity extends PathfinderMob {
         return 1.5f;
     }
 
+
+    /**
+     * Allows you to define mob effects that the boss is immune to.
+     */
+    public boolean isImmuneToEffect(MobEffect effect) {
+        return false;
+    }
+
     /**
      * Allows you to trigger certain events that will happen once the boss reaches a certain health threshold, if you
      * wanted a boss to have a second phase or something like that.
      */
     protected void triggerPhaseTransition(float healthRatio) {}
+
+
+    /**
+     * Returns whether the boss currently has hyper armor active.
+     * When true, incoming damage will be reduced to 1. Useful for not cheesing the boss when it's playing a triggered
+     * animation or something like that.
+     */
+    public boolean hasHyperArmor() {
+        return hyperArmor;
+    }
+
+    /**
+     * Sets hyper armor active for the given number of ticks.
+     */
+    public void setHyperArmor(int ticks) {
+        if (ticks > 0) {
+            this.hyperArmor = true;
+            this.hyperArmorTicks = ticks;
+        } else {
+            this.hyperArmor = false;
+            this.hyperArmorTicks = 0;
+        }
+    }
+
+    /**
+     * Instantly disable hyper armor.
+     */
+    public void clearHyperArmor() {
+        this.hyperArmor = false;
+        this.hyperArmorTicks = 0;
+    }
+
+    private boolean hyperArmor = false;
+    private int hyperArmorTicks = 0;
+
+
+    /**
+     * Returns whether the boss currently is in a vulnerable state.
+     * When active, incoming damage will be doubled. Useful for if the boss is exposing a weak point or
+     * something like that.
+     */
+    public boolean isVulnerable() {
+        return vulnerable;
+    }
+
+    /**
+     * Sets the entity to be vulnerable for a number of ticks.
+     */
+    public void setVulnerable(int ticks) {
+        if (ticks > 0) {
+            this.vulnerable = true;
+            this.vulnerableTicks = ticks;
+        } else {
+            this.vulnerable = false;
+            this.vulnerableTicks = 0;
+        }
+    }
+
+    /**
+     * Disable vulnerable state.
+     */
+    public void clearVulnerable() {
+        this.vulnerable = false;
+        this.vulnerableTicks = 0;
+    }
+
+    private boolean vulnerable = false;
+    private int vulnerableTicks = 0;
+
+    /**
+     * Returns the multiplier applied when vulnerable. Default is 2.0 (double damage).
+     * Can be overridden by subclasses if needed.
+     */
+    protected float getVulnerabilityMultiplier() {
+        return 2.0F;
+    }
 
     /**
      * Quick getter for the name of the entity, in case you want to check for custom names for a custom skin or
@@ -247,6 +349,10 @@ public class BossEntity extends PathfinderMob {
 
         onDeath(finalKiller);
 
+        this.level().broadcastEntityEvent(this, (byte)60);
+        this.remove(Entity.RemovalReason.KILLED);
+        this.dropAllDeathLoot(pDamageSource);
+
         super.die(pDamageSource);
     }
 
@@ -261,10 +367,13 @@ public class BossEntity extends PathfinderMob {
             amount *= getVulnerabilityFactor(pDamageSource);
         }
 
+        if (hasHyperArmor()) {
+            amount = 1;
+        } else if (isVulnerable()) {
+            amount = amount * getVulnerabilityMultiplier();
+        }
+
         super.actuallyHurt(pDamageSource, amount);
-
-
-
     }
 
     @Override
@@ -273,5 +382,23 @@ public class BossEntity extends PathfinderMob {
         if (immuneToDamageType(pSource)) return false;
 
         return super.hurt(pSource, pAmount);
+    }
+
+
+    @Override
+    public boolean canBeAffected(MobEffectInstance effectInstance) {
+        return !isImmuneToEffect(effectInstance.getEffect());
+    }
+
+    /**
+     * Tick Death is overriden with nothing so it can work with custom death animations.
+     */
+    @Override
+    protected void tickDeath() {
+    }
+
+    @Override
+    public int getExperienceReward() {
+        return 50;
     }
 }

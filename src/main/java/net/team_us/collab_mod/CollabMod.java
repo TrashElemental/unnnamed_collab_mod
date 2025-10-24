@@ -9,14 +9,19 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.team_us.collab_mod.block.ModBlocks;
 import net.team_us.collab_mod.entity.ModEntities;
-import net.team_us.collab_mod.entity.client.renderers.TestBossNoBarRenderer;
-import net.team_us.collab_mod.entity.client.renderers.TestBossWithBarRenderer;
+import net.team_us.collab_mod.entity.client.renderers.BeeMinionRenderer;
+import net.team_us.collab_mod.entity.client.renderers.HoneymanProjectileRenderer;
+import net.team_us.collab_mod.entity.client.renderers.HoneymanRenderer;
+import net.team_us.collab_mod.entity.client.renderers.LarvaMinionRenderer;
+import net.team_us.collab_mod.entity.custom.minions.LarvaMinionEntity;
 import net.team_us.collab_mod.item.ModCreativeModeTabs;
 import net.team_us.collab_mod.item.ModItems;
 import net.team_us.collab_mod.magic.brewing.ModPotions;
@@ -55,6 +60,8 @@ public class CollabMod
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -81,9 +88,10 @@ public class CollabMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
-            EntityRenderers.register(ModEntities.TEST_BOSS_NO_BAR.get(), TestBossNoBarRenderer::new);
-            EntityRenderers.register(ModEntities.TEST_BOSS_BAR.get(), TestBossWithBarRenderer::new);
-
+            EntityRenderers.register(ModEntities.HONEYMAN.get(), HoneymanRenderer::new);
+            EntityRenderers.register(ModEntities.HONEYMAN_BEE_MINION.get(), BeeMinionRenderer::new);
+            EntityRenderers.register(ModEntities.HONEYMAN_LARVA_MINION.get(), LarvaMinionRenderer::new);
+            EntityRenderers.register(ModEntities.HONEYMAN_PROJECTILE_ENTITY.get(), HoneymanProjectileRenderer::new);
 
         }
     }
