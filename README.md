@@ -11,6 +11,7 @@ Once the Honeyman reaches half health, and again at one quarter health, it will 
 
 
 --- Minions
+
 The Honeyman can summon two types of minions, both of which have very low HP, but can quickly pile up and become overwhelming.
 
 * Bee Minion - Flies at the target and inflicts poison with its attacks.
@@ -18,14 +19,18 @@ The Honeyman can summon two types of minions, both of which have very low HP, bu
 
 
 --- Boss Immunities
+
 The Honeyman is immune to the Poison effect. Whenever it enters Berserk mode, it will remove any potion effects it has, and become immune to all potion effects until its Berserk phase ends.
 
 --- Boss Weaknesses
+
 The Honeyman takes 1.5x from fire damage types and takes +2 damage from each level of smite on a weapon. It also takes double damage from all sources while its chest is exposed during its summon attack (excluding when it is doing its Berserk phase transition).
 
 
 --- Easy Mode Changes 
+
 While easy mode is enabled, the Honeyman will summon fewer minions with most of its minion-summoning abilities, and its minions cannot inflict any special effects with their attacks. It will also stay in Berserk mode for less time during a phase transition, and it can teleport less frequently.
 
 --- Hard Mode Changes
+
 While hard mode is enabled, the Honeyman will summon more minions with most of its minion summoning abilities, and its Larva minions will inflict Hunger on attacks. It will stay in Berserk mode for longer, and it can also teleport more frequently.
